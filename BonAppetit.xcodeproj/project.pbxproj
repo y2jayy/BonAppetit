@@ -16,6 +16,7 @@
 		691A5F051A4F894E00C28718 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691A5F031A4F894E00C28718 /* LaunchScreen.xib */; };
 		691A5F111A4F894E00C28718 /* BonAppetitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5F101A4F894E00C28718 /* BonAppetitTests.m */; };
 		691A5F1B1A4F8AEC00C28718 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */; };
+		691A5F1E1A4F8D3400C28718 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5F1D1A4F8D3400C28718 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		691A5F0F1A4F894E00C28718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		691A5F101A4F894E00C28718 /* BonAppetitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BonAppetitTests.m; sourceTree = "<group>"; };
 		691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		691A5F1C1A4F8D3400C28718 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		691A5F1D1A4F8D3400C28718 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				691A5F031A4F894E00C28718 /* LaunchScreen.xib */,
 				691A5EF81A4F894E00C28718 /* BonAppetit.xcdatamodeld */,
 				691A5EF11A4F894E00C28718 /* Supporting Files */,
+				691A5F1C1A4F8D3400C28718 /* LoginViewController.h */,
+				691A5F1D1A4F8D3400C28718 /* LoginViewController.m */,
 			);
 			path = BonAppetit;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				691A5EF41A4F894E00C28718 /* main.m in Sources */,
 				691A5EFD1A4F894E00C28718 /* ViewController.m in Sources */,
 				691A5EFA1A4F894E00C28718 /* BonAppetit.xcdatamodeld in Sources */,
+				691A5F1E1A4F8D3400C28718 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

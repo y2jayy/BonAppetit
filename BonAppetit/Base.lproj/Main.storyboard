@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="npi-qt-8Hk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,6 +20,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Vsx-wA-gM6">
+            <objects>
+                <viewController id="npi-qt-8Hk" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tGZ-11-t86"/>
+                        <viewControllerLayoutGuide type="bottom" id="x2t-EA-jnh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v7A-hH-VEm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ot0-QM-HQ4" customClass="FBLoginView">
+                                <rect key="frame" x="212" y="277" width="177" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="npi-qt-8Hk" id="cjW-S5-Zmb"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4A-t2-5x9">
+                                <rect key="frame" x="329" y="169" width="128" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGg-4E-CAG">
+                                <rect key="frame" x="206" y="117" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDH-mg-NHn" customClass="FBProfilePictureView">
+                                <rect key="frame" x="229" y="163" width="92" height="95"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="j4A-t2-5x9" secondAttribute="centerX" constant="-67" id="CO5-CQ-GcA"/>
+                            <constraint firstAttribute="centerX" secondItem="EDH-mg-NHn" secondAttribute="centerX" constant="78" id="GOP-B9-6ye"/>
+                            <constraint firstAttribute="centerX" secondItem="EDH-mg-NHn" secondAttribute="centerX" constant="25" id="UoE-ki-HwA"/>
+                            <constraint firstAttribute="centerX" secondItem="CGg-4E-CAG" secondAttribute="centerX" constant="2.5" id="eQH-ui-Tco"/>
+                            <constraint firstAttribute="centerX" secondItem="ot0-QM-HQ4" secondAttribute="centerX" constant="-0.5" id="puK-bl-9uf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginView" destination="ot0-QM-HQ4" id="dCJ-Sm-Ejb"/>
+                        <outlet property="nameLabel" destination="j4A-t2-5x9" id="U1n-F4-8WA"/>
+                        <outlet property="profilePictureView" destination="EDH-mg-NHn" id="hl0-Oz-FDp"/>
+                        <outlet property="statusLabel" destination="CGg-4E-CAG" id="DfH-sq-lCW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IGy-PK-ib1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="137"/>
         </scene>
     </scenes>
 </document>
