@@ -39,6 +39,7 @@
 
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+    [self performSegueWithIdentifier:@"showTabBarController" sender:self];
   self.statusLabel.text = @"You're logged in as";
 }
 
