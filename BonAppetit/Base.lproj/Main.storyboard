@@ -142,7 +142,7 @@
         <!--Camera-->
         <scene sceneID="ApI-k9-npQ">
             <objects>
-                <viewController id="Q9A-9d-QPC" sceneMemberID="viewController">
+                <viewController id="Q9A-9d-QPC" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bre-7R-5ty"/>
                         <viewControllerLayoutGuide type="bottom" id="uwM-GA-CrM"/>
@@ -150,9 +150,42 @@
                     <view key="view" contentMode="scaleToFill" id="95D-c8-a0l">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zsr-b0-R8B">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="407"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R19-eC-AXj">
+                                <rect key="frame" x="225" y="472" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.34411981380000001" green="1" blue="0.47694629890000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Select Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="Q9A-9d-QPC" eventType="touchUpInside" id="Af9-82-c8p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OC0-f5-z5e">
+                                <rect key="frame" x="225" y="424" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.34411981384661861" green="1" blue="0.47694629887547491" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="Q9A-9d-QPC" eventType="touchUpInside" id="TLg-wm-a98"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Zsr-b0-R8B" secondAttribute="centerX" id="4Ha-bo-1ms"/>
+                            <constraint firstAttribute="centerX" secondItem="OC0-f5-z5e" secondAttribute="centerX" id="lUN-Ny-C6W"/>
+                            <constraint firstAttribute="centerX" secondItem="R19-eC-AXj" secondAttribute="centerX" id="oRR-fH-Y9g"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="zmx-ks-lJ4"/>
+                    <connections>
+                        <outlet property="imageView" destination="Zsr-b0-R8B" id="ApK-Z2-kW7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpO-qI-QKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
