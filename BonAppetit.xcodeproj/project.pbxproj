@@ -15,6 +15,7 @@
 		691A5F021A4F894E00C28718 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 691A5F011A4F894E00C28718 /* Images.xcassets */; };
 		691A5F051A4F894E00C28718 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691A5F031A4F894E00C28718 /* LaunchScreen.xib */; };
 		691A5F111A4F894E00C28718 /* BonAppetitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5F101A4F894E00C28718 /* BonAppetitTests.m */; };
+		691A5F1B1A4F8AEC00C28718 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		691A5F0A1A4F894E00C28718 /* BonAppetitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BonAppetitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		691A5F0F1A4F894E00C28718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		691A5F101A4F894E00C28718 /* BonAppetitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BonAppetitTests.m; sourceTree = "<group>"; };
+		691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				691A5F1B1A4F8AEC00C28718 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +68,7 @@
 		691A5EE51A4F894E00C28718 = {
 			isa = PBXGroup;
 			children = (
+				691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */,
 				691A5EF01A4F894E00C28718 /* BonAppetit */,
 				691A5F0D1A4F894E00C28718 /* BonAppetitTests */,
 				691A5EEF1A4F894E00C28718 /* Products */,
@@ -349,8 +353,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BonAppetit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -359,8 +368,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BonAppetit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
