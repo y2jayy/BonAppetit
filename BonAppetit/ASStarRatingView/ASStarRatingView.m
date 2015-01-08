@@ -2,25 +2,13 @@
 //  ASRatingView.m
 //  AppShike
 //
-//  Created by yanguango on 12/19/11.
+//  Created by bl0ck on 12/19/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "ASStarRatingView.h"
 
 @implementation ASStarRatingView
-@synthesize notSelectedStar = _notSelectedStar;
-@synthesize selectedStar = _selectedStar;
-@synthesize halfSelectedStar = _halfSelectedStar;
-@synthesize canEdit = _canEdit;
-@synthesize maxRating = _maxRating;
-@synthesize midMargin = _midrMargin;
-@synthesize leftMargin = _leftMargin;
-@synthesize rightMargin = _rightMargin;
-@synthesize minStarSize = _minStarSize;
-@synthesize rating = _rating;
-@synthesize minAllowedRating = _minAllowedRating;
-@synthesize maxAllowedRating = _maxAllowedRating;
 
 - (void)refreshStars {
     for(int i = 0; i < _starViews.count; ++i) {
@@ -37,7 +25,7 @@
 
 - (void)setupView {
     for(int i = 0; i < _maxRating; ++i) {
-        UIImageView *imageView = [[[UIImageView alloc] init] autorelease];
+        UIImageView *imageView = [[UIImageView alloc] init];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         [_starViews addObject:imageView];
         [self addSubview:imageView];
@@ -46,10 +34,10 @@
 }
 
 - (void)baseInit {
-    _notSelectedStar = [[UIImage imageNamed:@"not_selected_star"] retain];
-    _selectedStar = [[UIImage imageNamed:@"selected_star"] retain];
-    _halfSelectedStar = [[UIImage imageNamed:@"half_selected_star"] retain];
-    _starViews = [[NSMutableArray array] retain];
+    _notSelectedStar = [UIImage imageNamed:@"not_selected_star"];
+    _selectedStar = [UIImage imageNamed:@"selected_star"];
+    _halfSelectedStar = [UIImage imageNamed:@"half_selected_star"];
+    _starViews = [NSMutableArray array];
     _maxRating = kDefaultMaxRating;
     _midMargin = kDefaultMidMargin;
     _leftMargin = kDefaultLeftMargin;
@@ -80,17 +68,17 @@
     return self;
 }
 
-- (void)dealloc {
-    [_notSelectedStar release];
-    _notSelectedStar = nil;
-    [_selectedStar release];
-    _selectedStar = nil;
-    [_halfSelectedStar release];
-    _halfSelectedStar = nil;
-    [_starViews release];
-    _starViews = nil;
-    [super dealloc];
-}
+//- (void)dealloc {
+//    [_notSelectedStar release];
+//    _notSelectedStar = nil;
+//    [_selectedStar release];
+//    _selectedStar = nil;
+//    [_halfSelectedStar release];
+//    _halfSelectedStar = nil;
+//    [_starViews release];
+//    _starViews = nil;
+//    [super dealloc];
+//}
 
 - (void)layoutSubviews {
     [super layoutSubviews];

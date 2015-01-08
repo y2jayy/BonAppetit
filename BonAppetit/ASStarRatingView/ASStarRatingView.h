@@ -1,8 +1,8 @@
 //
 //  ASStarRatingView.h
 //
-//  Created by yanguango on 12/19/11.
-//  Copyright (c) 2011 yanguango. All rights reserved.
+//  Created by bl0ckme on 12/19/11.
+//  Copyright (c) 2011 bl0ckme. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,24 +16,12 @@
 #define kDefaultMinStarSize CGSizeMake(5, 5)
 
 @interface ASStarRatingView : UIView {
-    UIImage *_notSelectedStar;
-    UIImage *_selectedStar;
-    UIImage *_halfSelectedStar;
-    BOOL _canEdit;
-    int _maxRating;
-    float _leftMargin;
-    float _midMargin;
-    float _rightMargin;
-    CGSize _minStarSize;
-    float _rating;
-    float _minAllowedRating;
-    float _maxAllowedRating;
     NSMutableArray *_starViews;
 }
 
-@property (retain, nonatomic) UIImage *notSelectedStar;
-@property (retain, nonatomic) UIImage *selectedStar;
-@property (retain, nonatomic) UIImage *halfSelectedStar;
+@property (strong, nonatomic) UIImage *notSelectedStar;
+@property (strong, nonatomic) UIImage *selectedStar;
+@property (strong, nonatomic) UIImage *halfSelectedStar;
 @property (assign, nonatomic) BOOL canEdit;
 @property (assign, nonatomic) int maxRating;
 @property (assign, nonatomic) float leftMargin;

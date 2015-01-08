@@ -7,6 +7,7 @@
 //
 
 #import "CameraViewController.h"
+#import "ASStarRatingView.h"
 
 @interface CameraViewController ()
 
@@ -65,16 +66,22 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.imageView.image = chosenImage;
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
+    //testing
+    ASStarRatingView *staticStarRatingView = [[ASStarRatingView alloc] init];
+    staticStarRatingView.canEdit = YES;
+    staticStarRatingView.maxRating = 5;
+    staticStarRatingView.rating = 3;
+    staticStarRatingView.frame = CGRectMake(32, 100, 256, 128);
+    [self.view addSubview:staticStarRatingView];
+    //testing
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
