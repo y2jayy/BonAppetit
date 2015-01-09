@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReviewNewsFeedViewController : UIViewController
+@interface ReviewNewsFeedViewController : UIViewController <NSURLConnectionDataDelegate>
+
+// NSURLConnection data and connections
+@property NSMutableData* receivedData;
+@property (nonatomic, strong) NSURLConnection *placeSearchConnection;
+// End NSURLConnection data and connections
 
 @end

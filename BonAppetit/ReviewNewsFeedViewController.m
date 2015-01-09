@@ -22,6 +22,9 @@
 
 @implementation ReviewNewsFeedViewController {
     GMSMapView *mapView_;
+    //testing
+    NSMutableDictionary *places;
+    //testing
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -170,21 +173,69 @@
 //}
 
 - (void)openMap {
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
-                                                          longitude:151.20
-                                                               zoom:6];
-    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    mapView_.myLocationEnabled = YES;
-    self.view = mapView_;
+    //testing
+     // Create the request.
+    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.8235306,-117.8340944&radius=5&rankBy=distance&types=restaurant&key=AIzaSyAJzXxRP2bnEyV_SiI1g2B8yDUYchjdrkE"]]
+                cachePolicy:NSURLRequestUseProtocolCachePolicy
+            timeoutInterval:60.0];
 
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.title = @"Sydney";
-    marker.snippet = @"Australia";
-    marker.map = mapView_;
+    // Create the NSMutableData to hold the received data.
+    _receivedData = [NSMutableData dataWithCapacity: 0];
+
+    // create the connection with the request and start loading the data
+    _placeSearchConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (!_placeSearchConnection) {
+        // Release the receivedData object.
+        _receivedData = nil;
+    }
+    //testing
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [_receivedData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    // Append the new data to receivedData.
+    // receivedData is an instance variable declared elsewhere.
+    [_receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    if (connection == _placeSearchConnection)
+    {
+        // Parse the JSON that came in
+        NSError *error;
+        NSDictionary *restaurantData = [NSJSONSerialization JSONObjectWithData:_receivedData options:NSJSONReadingAllowFragments error:&error][@"results"][0];
+        
+        double lat = [restaurantData[@"geometry"][@"location"][@"lat"] doubleValue],
+                lng = [restaurantData[@"geometry"][@"location"][@"lng"] doubleValue];
+        
+//        // Create a GMSCameraPosition that tells the map to display the
+//        // coordinate -33.86,151.20 at zoom level 6.
+//        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
+//                                                              longitude:lng
+//                                                                   zoom:14];
+//        mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+//        mapView_.myLocationEnabled = YES;
+//        self.view = mapView_;
+//
+//        // Creates a marker in the center of the map.
+//        GMSMarker *marker = [[GMSMarker alloc] init];
+//        marker.position = CLLocationCoordinate2DMake(lat, lng);
+//        marker.title = restaurantData[@"name"];
+//        marker.snippet = restaurantData[@"vicinity"];
+//        marker.map = mapView_;
+
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://?q=%@&center=%f,%f&zoom=15&views=traffic",   [restaurantData[@"name"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], lat, lng]]];
+        } else {
+            NSLog(@"Can't use comgooglemaps://");
+        }
+    }
 }
 
 @end
