@@ -25,6 +25,7 @@
 		690C93251A5F6F5800D3BC65 /* food8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 690C931B1A5F6F5800D3BC65 /* food8.jpg */; };
 		690C93261A5F6F5800D3BC65 /* food9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 690C931C1A5F6F5800D3BC65 /* food9.jpg */; };
 		690C93271A5F6F5800D3BC65 /* food10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 690C931D1A5F6F5800D3BC65 /* food10.jpg */; };
+		690C93291A5F83EB00D3BC65 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C93281A5F83EB00D3BC65 /* CoreLocation.framework */; };
 		691A5EF41A4F894E00C28718 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5EF31A4F894E00C28718 /* main.m */; };
 		691A5EF71A4F894E00C28718 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5EF61A4F894E00C28718 /* AppDelegate.m */; };
 		691A5EFA1A4F894E00C28718 /* BonAppetit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 691A5EF81A4F894E00C28718 /* BonAppetit.xcdatamodeld */; };
@@ -88,6 +89,7 @@
 		690C931B1A5F6F5800D3BC65 /* food8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = food8.jpg; path = Images/food8.jpg; sourceTree = "<group>"; };
 		690C931C1A5F6F5800D3BC65 /* food9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = food9.jpg; path = Images/food9.jpg; sourceTree = "<group>"; };
 		690C931D1A5F6F5800D3BC65 /* food10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = food10.jpg; path = Images/food10.jpg; sourceTree = "<group>"; };
+		690C93281A5F83EB00D3BC65 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		691A5EEE1A4F894E00C28718 /* BonAppetit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BonAppetit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		691A5EF21A4F894E00C28718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		691A5EF31A4F894E00C28718 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690C93291A5F83EB00D3BC65 /* CoreLocation.framework in Frameworks */,
 				690C93131A5F525200D3BC65 /* AudioToolbox.framework in Frameworks */,
 				691A5F601A4FBC5A00C28718 /* CoreGraphics.framework in Frameworks */,
 				691A5F1B1A4F8AEC00C28718 /* FacebookSDK.framework in Frameworks */,
@@ -183,6 +186,7 @@
 		691A5EE51A4F894E00C28718 = {
 			isa = PBXGroup;
 			children = (
+				690C93281A5F83EB00D3BC65 /* CoreLocation.framework */,
 				690C93121A5F525200D3BC65 /* AudioToolbox.framework */,
 				691A5F5F1A4FBC5A00C28718 /* CoreGraphics.framework */,
 				691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */,

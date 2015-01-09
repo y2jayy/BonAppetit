@@ -10,6 +10,8 @@
 #import "Masonry/Masonry.h"
 #import "StrechyParallaxScrollView.h"
 #import "ASStarRatingView.h"
+//#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 #define RGBCOLOR(r,g,b)     [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 
@@ -84,6 +86,20 @@
     UIImageView *reviewImageView = [[UIImageView alloc] initWithFrame:CGRectMake(item.superview.bounds.origin.x + 10, item.superview.bounds.origin.y + 10, item.bounds.size.width - 20, item.bounds.size.width - 20)];
     [reviewImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"food%d.jpg", num]]];
     
+    // create a mask that the covers the image exactly
+    UIControl *mask = [[UIControl alloc] initWithFrame:reviewImageView.frame];
+
+    // add the image as a subview of this mask
+    CGSize imageSize = reviewImageView.frame.size;
+    reviewImageView.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
+    [mask addSubview:reviewImageView];
+
+    // add a target-action for the desired control events to this mask
+    [mask addTarget:self action:@selector(openMap) forControlEvents:UIControlEventTouchUpInside];
+
+    // add the mask as a subview instead of the image
+    [item addSubview:mask];
+    
     //testing
     ASStarRatingView *staticStarRatingView = [[ASStarRatingView alloc] initWithFrame:CGRectMake(item.superview.bounds.origin.x + 10, item.bounds.origin.y + 250, item.bounds.size.width - 20, (item.bounds.size.width - 20) / 2)];
     staticStarRatingView.canEdit = NO;
@@ -91,8 +107,8 @@
     staticStarRatingView.rating = [self randomRating];
     //testing
     
-    [item addSubview:reviewImageView];
-    [item bringSubviewToFront:reviewImageView];
+//    [item addSubview:reviewImageView];
+//    [item bringSubviewToFront:reviewImageView];
     
     //testing
     [item addSubview:staticStarRatingView];
@@ -136,6 +152,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)openMap {
+   // Create an MKMapItem to pass to the Maps app
+    CLLocationCoordinate2D coordinate = 
+                CLLocationCoordinate2DMake(16.775, -3.009);
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate 
+                                            addressDictionary:nil];
+    MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+    [mapItem setName:@"My Place"];
+    // Pass the map item to the Maps app
+    [mapItem openInMapsWithLaunchOptions:nil];
 }
 
 @end
