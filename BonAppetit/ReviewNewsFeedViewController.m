@@ -213,27 +213,26 @@
         
         double lat = [restaurantData[@"geometry"][@"location"][@"lat"] doubleValue],
                 lng = [restaurantData[@"geometry"][@"location"][@"lng"] doubleValue];
-        
-//        // Create a GMSCameraPosition that tells the map to display the
-//        // coordinate -33.86,151.20 at zoom level 6.
-//        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
-//                                                              longitude:lng
-//                                                                   zoom:14];
-//        mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-//        mapView_.myLocationEnabled = YES;
-//        self.view = mapView_;
-//
-//        // Creates a marker in the center of the map.
-//        GMSMarker *marker = [[GMSMarker alloc] init];
-//        marker.position = CLLocationCoordinate2DMake(lat, lng);
-//        marker.title = restaurantData[@"name"];
-//        marker.snippet = restaurantData[@"vicinity"];
-//        marker.map = mapView_;
 
         if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://?q=%@&center=%f,%f&zoom=15&views=traffic",   [restaurantData[@"name"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], lat, lng]]];
         } else {
             NSLog(@"Can't use comgooglemaps://");
+            // Create a GMSCameraPosition that tells the map to display the
+            // coordinate -33.86,151.20 at zoom level 6.
+            GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
+                                                                  longitude:lng
+                                                                       zoom:14];
+            mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+            mapView_.myLocationEnabled = YES;
+            self.view = mapView_;
+
+            // Creates a marker in the center of the map.
+            GMSMarker *marker = [[GMSMarker alloc] init];
+            marker.position = CLLocationCoordinate2DMake(lat, lng);
+            marker.title = restaurantData[@"name"];
+            marker.snippet = restaurantData[@"vicinity"];
+            marker.map = mapView_;
         }
     }
 }
