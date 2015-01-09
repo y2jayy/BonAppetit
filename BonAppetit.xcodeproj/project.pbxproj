@@ -59,7 +59,6 @@
 		691A5F1B1A4F8AEC00C28718 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */; };
 		691A5F1E1A4F8D3400C28718 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5F1D1A4F8D3400C28718 /* LoginViewController.m */; };
 		691A5F211A4F981A00C28718 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5F201A4F981A00C28718 /* PageContentViewController.m */; };
-		691A5F341A4FB70300C28718 /* ReviewNewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5F331A4FB70300C28718 /* ReviewNewsFeedViewController.m */; };
 		691A5F521A4FB89500C28718 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 691A5F3A1A4FB89500C28718 /* LICENSE */; };
 		691A5F531A4FB89500C28718 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5F3C1A4FB89500C28718 /* MASCompositeConstraint.m */; };
 		691A5F541A4FB89500C28718 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5F3E1A4FB89500C28718 /* MASConstraint.m */; };
@@ -79,6 +78,8 @@
 		691A5F781A50AFC500C28718 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = 691A5F721A50AFC500C28718 /* page3.png */; };
 		691A5F791A50AFC500C28718 /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = 691A5F731A50AFC500C28718 /* page4.png */; };
 		691A5F7A1A50AFC500C28718 /* profile@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 691A5F741A50AFC500C28718 /* profile@2x.jpg */; };
+		6952AB2E1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */; };
+		6952AB311A609996006E135C /* ReviewNewsFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952AB301A609996006E135C /* ReviewNewsFeedTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,8 +154,6 @@
 		691A5F1D1A4F8D3400C28718 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		691A5F1F1A4F981A00C28718 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		691A5F201A4F981A00C28718 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
-		691A5F321A4FB70300C28718 /* ReviewNewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNewsFeedViewController.h; sourceTree = "<group>"; };
-		691A5F331A4FB70300C28718 /* ReviewNewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNewsFeedViewController.m; sourceTree = "<group>"; };
 		691A5F3A1A4FB89500C28718 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Masonry/LICENSE; sourceTree = "<group>"; };
 		691A5F3B1A4FB89500C28718 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		691A5F3C1A4FB89500C28718 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -190,6 +189,10 @@
 		691A5F721A50AFC500C28718 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page3.png; path = Images/page3.png; sourceTree = "<group>"; };
 		691A5F731A50AFC500C28718 /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page4.png; path = Images/page4.png; sourceTree = "<group>"; };
 		691A5F741A50AFC500C28718 /* profile@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "profile@2x.jpg"; path = "Images/profile@2x.jpg"; sourceTree = "<group>"; };
+		6952AB2C1A6098F4006E135C /* ReviewNewsFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNewsFeedTableViewCell.h; sourceTree = "<group>"; };
+		6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNewsFeedTableViewCell.m; sourceTree = "<group>"; };
+		6952AB2F1A609996006E135C /* ReviewNewsFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNewsFeedTableViewController.h; sourceTree = "<group>"; };
+		6952AB301A609996006E135C /* ReviewNewsFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNewsFeedTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,8 +293,10 @@
 				691A5F351A4FB7B700C28718 /* Masonry */,
 				691A5F1F1A4F981A00C28718 /* PageContentViewController.h */,
 				691A5F201A4F981A00C28718 /* PageContentViewController.m */,
-				691A5F321A4FB70300C28718 /* ReviewNewsFeedViewController.h */,
-				691A5F331A4FB70300C28718 /* ReviewNewsFeedViewController.m */,
+				6952AB2C1A6098F4006E135C /* ReviewNewsFeedTableViewCell.h */,
+				6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */,
+				6952AB2F1A609996006E135C /* ReviewNewsFeedTableViewController.h */,
+				6952AB301A609996006E135C /* ReviewNewsFeedTableViewController.m */,
 				691A5F641A50AEAF00C28718 /* StrechyParallaxScrollView */,
 				691A5EF11A4F894E00C28718 /* Supporting Files */,
 				691A5EFB1A4F894E00C28718 /* ViewController.h */,
@@ -544,8 +549,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				691A5EF71A4F894E00C28718 /* AppDelegate.m in Sources */,
+				6952AB311A609996006E135C /* ReviewNewsFeedTableViewController.m in Sources */,
 				691A5F631A4FBEB100C28718 /* CameraViewController.m in Sources */,
 				691A5EF41A4F894E00C28718 /* main.m in Sources */,
+				6952AB2E1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m in Sources */,
 				691A5F591A4FB89500C28718 /* NSArray+MASAdditions.m in Sources */,
 				691A5EFD1A4F894E00C28718 /* ViewController.m in Sources */,
 				691A5F5B1A4FB89500C28718 /* View+MASAdditions.m in Sources */,
@@ -556,7 +563,6 @@
 				691A5F531A4FB89500C28718 /* MASCompositeConstraint.m in Sources */,
 				691A5EFA1A4F894E00C28718 /* BonAppetit.xcdatamodeld in Sources */,
 				691A5F1E1A4F8D3400C28718 /* LoginViewController.m in Sources */,
-				691A5F341A4FB70300C28718 /* ReviewNewsFeedViewController.m in Sources */,
 				690C92861A5F2ED300D3BC65 /* ASStarRatingView.m in Sources */,
 				691A5F551A4FB89500C28718 /* MASConstraintMaker.m in Sources */,
 				691A5F581A4FB89500C28718 /* MASViewConstraint.m in Sources */,

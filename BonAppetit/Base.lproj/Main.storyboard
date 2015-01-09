@@ -139,6 +139,64 @@
             </objects>
             <point key="canvasLocation" x="844" y="137"/>
         </scene>
+        <!--Food Feed-->
+        <scene sceneID="0is-kK-Qie">
+            <objects>
+                <tableViewController id="gdE-rL-rYM" customClass="ReviewNewsFeedTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="530" sectionHeaderHeight="22" sectionFooterHeight="22" id="NS9-zy-HVc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reviewCell" rowHeight="530" id="01L-ab-YLh" customClass="ReviewNewsFeedTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="01L-ab-YLh" id="Tyy-AU-aQh">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSU-Ly-APn">
+                                            <rect key="frame" x="0.0" y="76" width="600" height="391"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QvJ-0V-mGh">
+                                            <rect key="frame" x="8" y="8" width="60" height="60"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1k-3e-gYo">
+                                            <rect key="frame" x="76" y="15" width="371" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF1-cS-39U">
+                                            <rect key="frame" x="76" y="38" width="371" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JbS-ff-08j">
+                                            <rect key="frame" x="455" y="21" width="137" height="33"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profileImageView" destination="QvJ-0V-mGh" id="u46-U1-XjZ"/>
+                                    <outlet property="ratingView" destination="JbS-ff-08j" id="o4n-eW-n48"/>
+                                    <outlet property="restaurantNameLabel" destination="HF1-cS-39U" id="b0i-3j-rrn"/>
+                                    <outlet property="reviewImageView" destination="tSU-Ly-APn" id="sYV-X9-BiF"/>
+                                    <outlet property="reviewerNameLabel" destination="e1k-3e-gYo" id="H6l-Nk-TYx"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gdE-rL-rYM" id="eHX-J6-RC3"/>
+                            <outlet property="delegate" destination="gdE-rL-rYM" id="5Gp-bi-6SP"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Food Feed" id="yaZ-Tm-kTe"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4If-E5-usP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2439" y="-283"/>
+        </scene>
         <!--Camera-->
         <scene sceneID="ApI-k9-npQ">
             <objects>
@@ -208,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcd-XD-sS7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="-203"/>
+            <point key="canvasLocation" x="2436" y="-1041"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="U8r-6k-ICI">
@@ -221,8 +279,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="q70-BU-kgc" kind="relationship" relationship="viewControllers" id="Thj-Sp-bmM"/>
                         <segue destination="Q9A-9d-QPC" kind="relationship" relationship="viewControllers" id="lF1-xw-bgr"/>
+                        <segue destination="gdE-rL-rYM" kind="relationship" relationship="viewControllers" id="eOJ-R4-vJq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7E-fD-Hfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
