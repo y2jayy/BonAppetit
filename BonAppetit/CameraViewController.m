@@ -8,6 +8,7 @@
 
 #import "CameraViewController.h"
 #import "ASStarRatingView.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface CameraViewController ()
 
@@ -95,7 +96,7 @@
 }
 
 - (void)saveRating {
-    NSLog(@"Write something...");
+    AudioServicesPlaySystemSound(1001);
 }
 
 @end
