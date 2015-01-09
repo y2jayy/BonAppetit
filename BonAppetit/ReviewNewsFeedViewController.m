@@ -78,7 +78,7 @@
     float itemStartY = topView.frame.size.height + 10;
     for (int i = 1; i <= 10; i++) {
         [strechy addSubview:[self scrollViewItemWithY:itemStartY andNumber:i]];
-        itemStartY += 360;
+        itemStartY += 390;
     }
     
     //set scrollable area (classic uiscrollview stuff)
@@ -86,10 +86,44 @@
 }
 
 - (UIView *)scrollViewItemWithY:(CGFloat)y andNumber:(int)num {
-    UIView *item = [[UIView alloc] initWithFrame:CGRectMake(10, y, [UIScreen mainScreen].bounds.size.width-20, 350)];
+    UIView *item = [[UIView alloc] initWithFrame:CGRectMake(10, y, [UIScreen mainScreen].bounds.size.width-20, 380)];
     [item setBackgroundColor:[self randomColor]];
     
-    UIImageView *reviewImageView = [[UIImageView alloc] initWithFrame:CGRectMake(item.superview.bounds.origin.x + 10, item.superview.bounds.origin.y + 10, item.bounds.size.width - 20, item.bounds.size.width - 20)];
+    //testing - adding profile pic and reviewer name and restaurant name
+    UIImageView *profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(item.superview.bounds.origin.x + 10, item.superview.bounds.origin.y + 10, 70, 70)];
+    [profileImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"person%d.jpg", num]]];
+    [item addSubview:profileImageView];
+    [item bringSubviewToFront:profileImageView];
+    
+    UILabel *reviewerNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(item.superview.bounds.origin.x + 100, item.superview.bounds.origin.y + 20, item.bounds.size.width - 100, 20)];
+    [reviewerNameLabel setText:@"Reviewer: John Q. Public"];
+    [reviewerNameLabel setTextColor:[self randomColor]];
+    [reviewerNameLabel setFont:[UIFont fontWithName:@"Helvetica" size:14]];
+    [item addSubview:reviewerNameLabel];
+    [item bringSubviewToFront:reviewerNameLabel];
+    
+//    UILabel *reviewerNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(item.superview.bounds.origin.x + 10, item.superview.bounds.origin.y + 100, item.bounds.size.width - 20, item.bounds.size.width - 20)];
+//    [reviewerNameLabel setText:@"Reviewer Name: John Q. Public"];
+//    [item addSubview:reviewerNameLabel];
+//    [item bringSubviewToFront:reviewerNameLabel];
+    //testing - end
+    
+    //testing
+    ASStarRatingView *staticStarRatingView = [[ASStarRatingView alloc] initWithFrame:CGRectMake(item.superview.bounds.origin.x + 90, item.bounds.origin.y + 5, (item.bounds.size.width - 20) * 0.70, ((item.bounds.size.width - 20) * 0.70) / 2)];
+    staticStarRatingView.canEdit = NO;
+    staticStarRatingView.maxRating = 5;
+    staticStarRatingView.rating = [self randomRating];
+    //testing
+    
+//    [item addSubview:reviewImageView];
+//    [item bringSubviewToFront:reviewImageView];
+    
+    //testing
+    [item addSubview:staticStarRatingView];
+    [item bringSubviewToFront:staticStarRatingView];
+    //testing
+    
+    UIImageView *reviewImageView = [[UIImageView alloc] initWithFrame:CGRectMake(item.superview.bounds.origin.x + 10, item.superview.bounds.origin.y + 90, item.bounds.size.width - 20, item.bounds.size.width - 20)];
     [reviewImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"food%d.jpg", num]]];
     
     // create a mask that the covers the image exactly
@@ -105,21 +139,6 @@
 
     // add the mask as a subview instead of the image
     [item addSubview:mask];
-    
-    //testing
-    ASStarRatingView *staticStarRatingView = [[ASStarRatingView alloc] initWithFrame:CGRectMake(item.superview.bounds.origin.x + 10, item.bounds.origin.y + 250, item.bounds.size.width - 20, (item.bounds.size.width - 20) / 2)];
-    staticStarRatingView.canEdit = NO;
-    staticStarRatingView.maxRating = 5;
-    staticStarRatingView.rating = [self randomRating];
-    //testing
-    
-//    [item addSubview:reviewImageView];
-//    [item bringSubviewToFront:reviewImageView];
-    
-    //testing
-    [item addSubview:staticStarRatingView];
-    [item bringSubviewToFront:staticStarRatingView];
-    //testing
     
 //    [item setText:[NSString stringWithFormat:@"Item %d", num]];
 //    [item setTextAlignment:NSTextAlignmentCenter];
