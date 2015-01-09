@@ -61,12 +61,25 @@
 sourceApplication:(NSString *)sourceApplication
      annotation:(id)annotation {
 
-    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
-    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    NSLog(@"gets into here");
+    if([[url scheme] caseInsensitiveCompare:@"fb523572624452696"] == NSOrderedSame)
+    {
+        NSLog(@"called");
+        // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+        BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 
-    // You can add your app-specific url handling code here if needed
+        // You can add your app-specific url handling code here if needed
 
-    return wasHandled;
+        return wasHandled;
+    } else {
+        NSLog(@"not called");
+        NSLog(@"url recieved: %@", url);
+        NSLog(@"scheme: %@", [url scheme]);
+        NSLog(@"query string: %@", [url query]);
+        NSLog(@"host: %@", [url host]);
+        
+        return YES;
+    }
 }
 
 #pragma mark - Core Data stack

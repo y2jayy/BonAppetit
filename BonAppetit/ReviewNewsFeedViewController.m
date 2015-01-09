@@ -215,7 +215,7 @@
                 lng = [restaurantData[@"geometry"][@"location"][@"lng"] doubleValue];
 
         if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://?q=%@&center=%f,%f&zoom=15&views=traffic",   [restaurantData[@"name"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], lat, lng]]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps://?q=%@&center=%f,%f&zoom=15&views=traffic&x-success=bonappetitapp://?resume=true&x-source=bonappetitapp",   [restaurantData[@"name"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], lat, lng]]];
         } else {
             NSLog(@"Can't use comgooglemaps://");
             // Create a GMSCameraPosition that tells the map to display the
