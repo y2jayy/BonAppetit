@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate ()
 
@@ -23,6 +24,9 @@
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     pageControl.backgroundColor = [UIColor whiteColor];
     
+    //testing
+    [GMSServices provideAPIKey:@"AIzaSyDuoCTe5O9ge3MhYGY3AGM69awa3bel3Ek"];
+    //testing
     return YES;
 }
 
