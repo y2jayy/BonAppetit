@@ -12,6 +12,9 @@
 
 @interface CameraViewController ()
 
+@property (nonatomic, strong) ASStarRatingView *editableStarRatingView;
+@property (nonatomic, strong) UIButton *confirmRatingButton;
+
 @end
 
 @implementation CameraViewController
@@ -73,20 +76,22 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
     //testing
-    ASStarRatingView *staticStarRatingView = [[ASStarRatingView alloc] init];
-    staticStarRatingView.canEdit = YES;
-    staticStarRatingView.maxRating = 5;
-    staticStarRatingView.rating = 3;
-    staticStarRatingView.frame = CGRectMake(32, 100, 256, 128);
-    [self.view addSubview:staticStarRatingView];
+    [self.editableStarRatingView removeFromSuperview];
+    self.editableStarRatingView = [[ASStarRatingView alloc] init];
+    self.editableStarRatingView.canEdit = YES;
+    self.editableStarRatingView.maxRating = 5;
+    self.editableStarRatingView.rating = 3;
+    self.editableStarRatingView.frame = CGRectMake(32, 100, 256, 128);
+    [self.view addSubview:self.editableStarRatingView];
     //testing
     
     //testing
-    UIButton *confirmRatingButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 200, 80, 40)];
-    [confirmRatingButton setTitle:@"Rate!" forState:UIControlStateNormal];
-    [confirmRatingButton setBackgroundColor:[UIColor greenColor]];
-    [confirmRatingButton addTarget:self action:@selector(saveRating) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:confirmRatingButton];
+    [self.confirmRatingButton removeFromSuperview];
+    self.confirmRatingButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 200, 80, 40)];
+    [self.confirmRatingButton setTitle:@"Rate!" forState:UIControlStateNormal];
+    [self.confirmRatingButton setBackgroundColor:[UIColor greenColor]];
+    [self.confirmRatingButton addTarget:self action:@selector(saveRating) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.confirmRatingButton];
     //testing
 }
 
@@ -97,6 +102,10 @@
 
 - (void)saveRating {
     AudioServicesPlaySystemSound(1001);
+    NSLog(@"Rating is: %f", self.editableStarRatingView.rating);
+    [self.editableStarRatingView removeFromSuperview];
+    [self.confirmRatingButton removeFromSuperview];
+    self.imageView.image = nil;
 }
 
 @end
