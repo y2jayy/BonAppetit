@@ -79,11 +79,23 @@
     staticStarRatingView.frame = CGRectMake(32, 100, 256, 128);
     [self.view addSubview:staticStarRatingView];
     //testing
+    
+    //testing
+    UIButton *confirmRatingButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 200, 80, 40)];
+    [confirmRatingButton setTitle:@"Rate!" forState:UIControlStateNormal];
+    [confirmRatingButton setBackgroundColor:[UIColor greenColor]];
+    [confirmRatingButton addTarget:self action:@selector(saveRating) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:confirmRatingButton];
+    //testing
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+- (void)saveRating {
+    NSLog(@"Write something...");
 }
 
 @end

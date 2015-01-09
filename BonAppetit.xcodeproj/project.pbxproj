@@ -14,6 +14,7 @@
 		690C92911A5F31AB00D3BC65 /* not_selected_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C928B1A5F31AB00D3BC65 /* not_selected_star@2x.png */; };
 		690C92921A5F31AB00D3BC65 /* selected_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C928C1A5F31AB00D3BC65 /* selected_star.png */; };
 		690C92931A5F31AB00D3BC65 /* selected_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C928D1A5F31AB00D3BC65 /* selected_star@2x.png */; };
+		690C93131A5F525200D3BC65 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C93121A5F525200D3BC65 /* AudioToolbox.framework */; };
 		691A5EF41A4F894E00C28718 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5EF31A4F894E00C28718 /* main.m */; };
 		691A5EF71A4F894E00C28718 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 691A5EF61A4F894E00C28718 /* AppDelegate.m */; };
 		691A5EFA1A4F894E00C28718 /* BonAppetit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 691A5EF81A4F894E00C28718 /* BonAppetit.xcdatamodeld */; };
@@ -67,6 +68,7 @@
 		690C928B1A5F31AB00D3BC65 /* not_selected_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "not_selected_star@2x.png"; path = "ASStarRatingView/stars/not_selected_star@2x.png"; sourceTree = "<group>"; };
 		690C928C1A5F31AB00D3BC65 /* selected_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected_star.png; path = ASStarRatingView/stars/selected_star.png; sourceTree = "<group>"; };
 		690C928D1A5F31AB00D3BC65 /* selected_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "selected_star@2x.png"; path = "ASStarRatingView/stars/selected_star@2x.png"; sourceTree = "<group>"; };
+		690C93121A5F525200D3BC65 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		691A5EEE1A4F894E00C28718 /* BonAppetit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BonAppetit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		691A5EF21A4F894E00C28718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		691A5EF31A4F894E00C28718 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690C93131A5F525200D3BC65 /* AudioToolbox.framework in Frameworks */,
 				691A5F601A4FBC5A00C28718 /* CoreGraphics.framework in Frameworks */,
 				691A5F1B1A4F8AEC00C28718 /* FacebookSDK.framework in Frameworks */,
 			);
@@ -163,6 +166,7 @@
 		691A5EE51A4F894E00C28718 = {
 			isa = PBXGroup;
 			children = (
+				690C93121A5F525200D3BC65 /* AudioToolbox.framework */,
 				691A5F5F1A4FBC5A00C28718 /* CoreGraphics.framework */,
 				691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */,
 				691A5EF01A4F894E00C28718 /* BonAppetit */,
