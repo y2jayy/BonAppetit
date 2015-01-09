@@ -1,22 +1,22 @@
 //
-//  TestViewController.m
+//  ReviewNewsFeedViewController.m
 //  StrechyParallaxScrollView
 //
 //  Created by Cem Olcay on 12/09/14.
 //  Copyright (c) 2014 questa. All rights reserved.
 //
 
-#import "TestViewController.h"
+#import "ReviewNewsFeedViewController.h"
 #import "Masonry/Masonry.h"
 #import "StrechyParallaxScrollView.h"
 
 #define RGBCOLOR(r,g,b)     [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 
-@interface TestViewController ()
+@interface ReviewNewsFeedViewController ()
 
 @end
 
-@implementation TestViewController
+@implementation ReviewNewsFeedViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -102,4 +102,4 @@
 
 // Copyright belongs to original author
 // http://code4app.net (en) http://code4app.com (cn)
-// From the most professional code share website: Code4App.net 
+// From the most professional code share website: Code4App.net

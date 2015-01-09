@@ -1,5 +1,5 @@
 //
-//  ReviewNewsFeed.h
+//  ReviewNewsFeedViewController.h
 //  BonAppetit
 //
 //  Created by Jay Yoon on 12/27/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReviewNewsFeed : UIViewController
+@interface ReviewNewsFeedViewController : UIViewController
 
 @end

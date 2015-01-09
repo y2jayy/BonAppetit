@@ -194,7 +194,7 @@
         <!--Food Feed-->
         <scene sceneID="fJt-0M-tW5">
             <objects>
-                <viewController id="q70-BU-kgc" customClass="TestViewController" sceneMemberID="viewController">
+                <viewController id="q70-BU-kgc" customClass="ReviewNewsFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xeW-Wb-3tI"/>
                         <viewControllerLayoutGuide type="bottom" id="aUD-HW-lpM"/>
