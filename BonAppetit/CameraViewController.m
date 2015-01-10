@@ -114,6 +114,7 @@
     NSDictionary *parameters  = [NSDictionary dictionaryWithObjectsAndKeys:@"review",@"c", @"createReview",@"m", @"Jay Yoon",@"username", string,@"filepath", nil];
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 
     [manager POST:stringUrl parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
     {
@@ -121,7 +122,8 @@
     }
     success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        NSLog(@"%@",[responseObject valueForKey:@"Root"]);
+//        NSLog(@"%@",[responseObject valueForKey:@"Root"]);
+        NSLog(@"%@", responseObject);
         UIAlertView *Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"myappname" message:string delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [Alert_Success_fail show];
     }
