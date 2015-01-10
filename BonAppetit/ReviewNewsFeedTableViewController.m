@@ -37,7 +37,7 @@
                    @"food5.jpg"];
 
     _reviewerNames = @[@"Allie Flores",
-                   @"Brady Yoon",
+                   @"Hershel Mehta",
                    @"Dallas Caley",
                    @"Emily Hsu",
                    @"Jay Yoon"];
@@ -88,6 +88,10 @@
     cell.restaurantNameLabel.text = _restaurantNames[row];
     cell.reviewImageView.image = [UIImage imageNamed:_reviewImages[row]];
     cell.profileImageView.image = [UIImage imageNamed:_profileImages[row]];
+    
+    cell.ratingView.canEdit = NO;
+    cell.ratingView.maxRating = 5;
+    cell.ratingView.rating = [_ratings[row] doubleValue];
 
     return cell;
 }

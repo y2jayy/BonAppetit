@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASStarRatingView.h"
 
 @interface ReviewNewsFeedTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *reviewImageView;
 @property (strong, nonatomic) IBOutlet UILabel *reviewerNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
-@property (strong, nonatomic) IBOutlet UIView *ratingView;
+@property (strong, nonatomic) IBOutlet ASStarRatingView *ratingView;
 
 @end
