@@ -9,6 +9,8 @@
 #import "CameraViewController.h"
 #import "ASStarRatingView.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import <AFHTTPRequestOperation.h>
+#import <AFHTTPRequestOperationManager.h>
 
 @interface CameraViewController ()
 
@@ -102,7 +104,34 @@
 
 - (void)saveRating {
     AudioServicesPlaySystemSound(1001);
-    NSLog(@"Rating is: %f", self.editableStarRatingView.rating);
+    double rating = self.editableStarRatingView.rating;
+
+    //testing
+    NSString *stringUrl = @"http://www.networksocal.com/index.php?";
+    NSString *string = @"http://www.networksocal.com/img/myimage.png";
+    NSURL *filePath = [NSURL fileURLWithPath:string];
+
+    NSDictionary *parameters  = [NSDictionary dictionaryWithObjectsAndKeys:@"review",@"c", @"createReview",@"m", @"Jay Yoon",@"username", string,@"filepath", nil];
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    [manager POST:stringUrl parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+    {
+        [formData appendPartWithFileURL:filePath name:@"userfile" error:nil];//here userfile is a paramiter for your image
+    }
+    success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        NSLog(@"%@",[responseObject valueForKey:@"Root"]);
+        UIAlertView *Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"myappname" message:string delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [Alert_Success_fail show];
+    }
+    failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        UIAlertView *Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"myappname" message:[error localizedDescription] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [Alert_Success_fail show];
+    }];
+    //testing
+    
     [self.editableStarRatingView removeFromSuperview];
     [self.confirmRatingButton removeFromSuperview];
     self.imageView.image = nil;
