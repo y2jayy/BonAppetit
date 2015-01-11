@@ -107,32 +107,22 @@
     double rating = self.editableStarRatingView.rating;
 
     //testing
-    NSString *stringUrl = @"http://www.networksocal.com/index.php?";
-    NSString *string = @"http://www.networksocal.com/img/myimage.png";
-    NSURL *filePath = [NSURL fileURLWithPath:string];
-
-    NSDictionary *parameters = @{};
-
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.networksocal.com/"]];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.5);
+    NSDictionary *parameters = @{@"message": @"saved!"};
+    AFHTTPRequestOperation *op = [manager POST:@"?c=review&m=createReview" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //do not put image inside parameters dictionary as I did, but append it!
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"upload.jpg" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+   }];
+    [op start];
 
-    [manager POST:stringUrl parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-    {
-        [formData appendPartWithFileURL:filePath name:@"userfile" error:nil];//here userfile is a paramiter for your image
-    }
-    success:^(AFHTTPRequestOperation *operation, id responseObject)
-    {
-//        NSLog(@"%@",[responseObject valueForKey:@"Root"]);
-        NSLog(@"%@", responseObject);
-        NSLog(@"Hell World!");
-        UIAlertView *Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"myappname" message:string delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-        [Alert_Success_fail show];
-    }
-    failure:^(AFHTTPRequestOperation *operation, NSError *error)
-    {
-        UIAlertView *Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"myappname" message:[error localizedDescription] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-        [Alert_Success_fail show];
-    }];
+
+//        [self dismissViewControllerAnimated:YES completion:nil];
     //testing
     
     [self.editableStarRatingView removeFromSuperview];
