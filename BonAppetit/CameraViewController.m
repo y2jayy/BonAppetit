@@ -11,6 +11,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AFHTTPRequestOperation.h>
 #import <AFHTTPRequestOperationManager.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface CameraViewController ()
 
@@ -110,10 +111,14 @@
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.networksocal.com/"]];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.5);
-    NSDictionary *parameters = @{@"message": @"saved!"};
+    NSString *timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+    NSDictionary *parameters = @{
+        @"filepath": [NSString stringWithFormat:@"uploads/%@.jpg", timestamp],
+        @"rating": [NSString stringWithFormat:@"%f", rating]
+    };
     AFHTTPRequestOperation *op = [manager POST:@"?c=review&m=createReview" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //do not put image inside parameters dictionary as I did, but append it!
-        [formData appendPartWithFileData:imageData name:@"file" fileName:@"upload.jpg" mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:imageData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg", timestamp] mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
