@@ -111,7 +111,7 @@
     NSString *string = @"http://www.networksocal.com/img/myimage.png";
     NSURL *filePath = [NSURL fileURLWithPath:string];
 
-    NSDictionary *parameters  = [NSDictionary dictionaryWithObjectsAndKeys:@"review",@"c", @"createReview",@"m", @"Jay Yoon",@"username", string,@"filepath", nil];
+    NSDictionary *parameters = @{};
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -124,6 +124,7 @@
     {
 //        NSLog(@"%@",[responseObject valueForKey:@"Root"]);
         NSLog(@"%@", responseObject);
+        NSLog(@"Hell World!");
         UIAlertView *Alert_Success_fail = [[UIAlertView alloc] initWithTitle:@"myappname" message:string delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [Alert_Success_fail show];
     }
