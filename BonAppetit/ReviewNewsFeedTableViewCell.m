@@ -20,4 +20,24 @@
     // Configure the view for the selected state
 }
 
+- (void)configureWithReview:(BAReview *)review
+{
+    self.reviewerNameLabel.text = review.username;
+    self.restaurantNameLabel.text = review.restaurantName;
+    
+    NSURL *url = [NSURL URLWithString:
+    [NSString stringWithFormat:@"http://www.networksocal.com/%@", review.filepath]];
+    UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
+    self.reviewImageView.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
+    self.reviewImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.reviewImageView.clipsToBounds = YES;
+    
+//    cell.profileImageView.image = [UIImage imageNamed:_profileImages[row]];
+    
+    self.ratingView.canEdit = NO;
+    self.ratingView.maxRating = 5;
+    self.ratingView.rating = [review.rating doubleValue];
+}
+
+
 @end

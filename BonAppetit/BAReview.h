@@ -1,0 +1,28 @@
+//
+//  BAReview.h
+//  BonAppetit
+//
+//  Created by Jay Yoon on 1/10/15.
+//  Copyright (c) 2015 Jay Yoon. All rights reserved.
+//
+
+#import "BAJSONModel.h"
+#import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+
+@class BAUser;
+
+@interface BAReview : BAJSONModel
+
+@property (nonatomic, copy) NSString *reviewId;
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, copy) NSString *restaurantName;
+@property (nonatomic, strong) NSDate *createdAtDate;
+@property (nonatomic, copy) NSString *rating;
+@property (nonatomic, copy) NSString *filepath;
+//temp
+@property (nonatomic, copy) NSString *username;
+//temp
+@property (nonatomic, strong) BAUser *user;
+
+@end

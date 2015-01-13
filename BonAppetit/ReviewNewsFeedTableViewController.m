@@ -8,8 +8,13 @@
 
 #import "ReviewNewsFeedTableViewController.h"
 #import "ReviewNewsFeedTableViewCell.h"
+//#import "BAReview.h"
+#import "AppDelegate.h"
 
 @interface ReviewNewsFeedTableViewController ()
+
+@property (nonatomic, strong) NSArray *latestReviews;
+@property (nonatomic, strong) BAUser *user;
 
 @end
 
@@ -53,6 +58,26 @@
                    @"2",
                    @"4",
                    @"1"];
+    
+    self.user = [[API sharedManager] signedInUser];
+    
+    [self.tableView reloadData];
+    [self fetchLatestReviews];
+}
+
+-(void)fetchLatestReviews
+{
+    [[API sharedManager] fetchFolloweeReviewsForUser:self.user callback:
+      ^(NSArray *sortedReviews, NSError *error) {
+NSLog(@"%@", sortedReviews);
+NSLog(@"wtf");
+          if (error) {
+              NSLog(@"Error fetching latest reviews: %@", error);
+          } else {
+              self.latestReviews = sortedReviews;
+              [self.tableView reloadData];
+          }
+      }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,7 +96,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return _reviewImages.count;
+    return [self.latestReviews count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,14 +109,16 @@
 
     long row = [indexPath row];
 
-    cell.reviewerNameLabel.text = _reviewerNames[row];
-    cell.restaurantNameLabel.text = _restaurantNames[row];
-    cell.reviewImageView.image = [UIImage imageNamed:_reviewImages[row]];
-    cell.profileImageView.image = [UIImage imageNamed:_profileImages[row]];
+//    cell.reviewerNameLabel.text = _reviewerNames[row];
+//    cell.restaurantNameLabel.text = _restaurantNames[row];
+//    cell.reviewImageView.image = [UIImage imageNamed:_reviewImages[row]];
+//    cell.profileImageView.image = [UIImage imageNamed:_profileImages[row]];
+//    
+//    cell.ratingView.canEdit = NO;
+//    cell.ratingView.maxRating = 5;
+//    cell.ratingView.rating = [_ratings[row] doubleValue];
     
-    cell.ratingView.canEdit = NO;
-    cell.ratingView.maxRating = 5;
-    cell.ratingView.rating = [_ratings[row] doubleValue];
+    [cell configureWithReview:self.latestReviews[row]];
 
     return cell;
 }

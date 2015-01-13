@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ASStarRatingView.h"
+#import "BAReview.h"
 
 @interface ReviewNewsFeedTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -15,5 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *reviewerNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
 @property (strong, nonatomic) IBOutlet ASStarRatingView *ratingView;
+
+- (void)configureWithReview:(BAReview *)review;
 
 @end

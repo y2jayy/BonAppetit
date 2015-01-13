@@ -68,6 +68,11 @@
 		691A5F791A50AFC500C28718 /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = 691A5F731A50AFC500C28718 /* page4.png */; };
 		691A5F7A1A50AFC500C28718 /* profile@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 691A5F741A50AFC500C28718 /* profile@2x.jpg */; };
 		694D09571A610D2C0055B69F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694D09561A610D2C0055B69F /* Security.framework */; };
+		694D095F1A6243690055B69F /* BAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 694D095E1A6243690055B69F /* BAUser.m */; };
+		694D09621A6244960055B69F /* BAReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 694D09611A6244960055B69F /* BAReview.m */; };
+		694D09651A624C650055B69F /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 694D09641A624C650055B69F /* API.m */; };
+		694D09691A625B450055B69F /* NSObject+TypeValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 694D09681A625B450055B69F /* NSObject+TypeValidation.m */; };
+		694D096F1A625D750055B69F /* BAJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 694D096E1A625D750055B69F /* BAJSONModel.m */; };
 		6952AB2E1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */; };
 		6952AB311A609996006E135C /* ReviewNewsFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952AB301A609996006E135C /* ReviewNewsFeedTableViewController.m */; };
 		EEA503F16758E31244F473DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C66EC9154216A911DD14C /* libPods.a */; };
@@ -156,6 +161,16 @@
 		691A5F731A50AFC500C28718 /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page4.png; path = Images/page4.png; sourceTree = "<group>"; };
 		691A5F741A50AFC500C28718 /* profile@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "profile@2x.jpg"; path = "Images/profile@2x.jpg"; sourceTree = "<group>"; };
 		694D09561A610D2C0055B69F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		694D095D1A6243690055B69F /* BAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAUser.h; sourceTree = "<group>"; };
+		694D095E1A6243690055B69F /* BAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAUser.m; sourceTree = "<group>"; };
+		694D09601A6244960055B69F /* BAReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAReview.h; sourceTree = "<group>"; };
+		694D09611A6244960055B69F /* BAReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAReview.m; sourceTree = "<group>"; };
+		694D09631A624C650055B69F /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		694D09641A624C650055B69F /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		694D09671A625B450055B69F /* NSObject+TypeValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TypeValidation.h"; sourceTree = "<group>"; };
+		694D09681A625B450055B69F /* NSObject+TypeValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TypeValidation.m"; sourceTree = "<group>"; };
+		694D096D1A625D750055B69F /* BAJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAJSONModel.h; sourceTree = "<group>"; };
+		694D096E1A625D750055B69F /* BAJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAJSONModel.m; sourceTree = "<group>"; };
 		6952AB2C1A6098F4006E135C /* ReviewNewsFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNewsFeedTableViewCell.h; sourceTree = "<group>"; };
 		6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNewsFeedTableViewCell.m; sourceTree = "<group>"; };
 		6952AB2F1A609996006E135C /* ReviewNewsFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNewsFeedTableViewController.h; sourceTree = "<group>"; };
@@ -266,6 +281,7 @@
 				694D095C1A623F2C0055B69F /* Authentication */,
 				691A5EF81A4F894E00C28718 /* BonAppetit.xcdatamodeld */,
 				694D09591A623EF10055B69F /* Camera */,
+				694D09661A625B2E0055B69F /* Helper Classes */,
 				691A5F221A4F9AA000C28718 /* Images */,
 				691A5F011A4F894E00C28718 /* Images.xcassets */,
 				691A5F031A4F894E00C28718 /* LaunchScreen.xib */,
@@ -351,6 +367,12 @@
 		694D09581A623EE60055B69F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				694D096D1A625D750055B69F /* BAJSONModel.h */,
+				694D096E1A625D750055B69F /* BAJSONModel.m */,
+				694D095D1A6243690055B69F /* BAUser.h */,
+				694D095E1A6243690055B69F /* BAUser.m */,
+				694D09601A6244960055B69F /* BAReview.h */,
+				694D09611A6244960055B69F /* BAReview.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -395,9 +417,20 @@
 			name = Authentication;
 			sourceTree = "<group>";
 		};
+		694D09661A625B2E0055B69F /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				694D09671A625B450055B69F /* NSObject+TypeValidation.h */,
+				694D09681A625B450055B69F /* NSObject+TypeValidation.m */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
 		6952AB321A60E5D3006E135C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				694D09631A624C650055B69F /* API.h */,
+				694D09641A624C650055B69F /* API.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -584,7 +617,12 @@
 				691A5F631A4FBEB100C28718 /* CameraViewController.m in Sources */,
 				691A5EF41A4F894E00C28718 /* main.m in Sources */,
 				6952AB2E1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m in Sources */,
+				694D09621A6244960055B69F /* BAReview.m in Sources */,
+				694D09691A625B450055B69F /* NSObject+TypeValidation.m in Sources */,
 				691A5EFD1A4F894E00C28718 /* ViewController.m in Sources */,
+				694D096F1A625D750055B69F /* BAJSONModel.m in Sources */,
+				694D09651A624C650055B69F /* API.m in Sources */,
+				694D095F1A6243690055B69F /* BAUser.m in Sources */,
 				691A5EFA1A4F894E00C28718 /* BonAppetit.xcdatamodeld in Sources */,
 				691A5F1E1A4F8D3400C28718 /* LoginViewController.m in Sources */,
 				690C92861A5F2ED300D3BC65 /* ASStarRatingView.m in Sources */,
