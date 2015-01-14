@@ -7,7 +7,7 @@
 //
 
 #import "ReviewNewsFeedTableViewCell.h"
-#import "SDWebImage/UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ReviewNewsFeedTableViewCell
 
@@ -25,17 +25,10 @@
 {
     self.reviewerNameLabel.text = review.username;
     self.restaurantNameLabel.text = review.restaurantName;
-    
-    NSURL *url = [NSURL URLWithString:
-    [NSString stringWithFormat:@"http://www.networksocal.com/%@", review.filepath]];
-    UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
-    self.reviewImageView.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
-    
     //testing
     // Here we use the new provided setImageWithURL: method to load the web image
     [self.reviewImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.networksocal.com/%@", review.filepath]]];
     //testing
-    
     self.reviewImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.reviewImageView.clipsToBounds = YES;
     
