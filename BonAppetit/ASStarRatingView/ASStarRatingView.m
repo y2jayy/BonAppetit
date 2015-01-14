@@ -7,6 +7,7 @@
 //
 
 #import "ASStarRatingView.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation ASStarRatingView
 
@@ -15,12 +16,21 @@
         UIImageView *imageView = [_starViews objectAtIndex:i];
         if (_rating >= i+1) {
             imageView.image = _selectedStar;
+            _starStates[i] = [NSNumber numberWithBool:YES];
         } else if (_rating > i) {
             imageView.image = _halfSelectedStar;
         } else {
             imageView.image = _notSelectedStar;
+            _starStates[i] = [NSNumber numberWithBool:NO];
         }
     }
+    
+//NSLog(@"%@, %@", _starStates, _starStatesPrev);
+//    if (![_starStates isEqualToArray:_starStatesPrev]) {
+//        AudioServicesPlaySystemSound(1104);
+//    }
+//    
+//    _starStatesPrev = _starStates;
 }
 
 - (void)setupView {
@@ -38,6 +48,10 @@
     _selectedStar = [UIImage imageNamed:@"selected_star"];
     _halfSelectedStar = [UIImage imageNamed:@"half_selected_star"];
     _starViews = [NSMutableArray array];
+    //testing
+    _starStates = [NSMutableArray array];
+    _starStatesPrev = [NSMutableArray array];
+    //testing
     _maxRating = kDefaultMaxRating;
     _midMargin = kDefaultMidMargin;
     _leftMargin = kDefaultLeftMargin;
@@ -83,7 +97,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    NSLog(@"%f, %f, %f, %d", self.frame.size.width, _leftMargin, _midMargin, _starViews.count);
+//    NSLog(@"%f, %f, %f, %d", self.frame.size.width, _leftMargin, _midMargin, _starViews.count);
     float desiredImageWidth = (self.frame.size.width - (_leftMargin*2) - (_midMargin*_starViews.count)) / _starViews.count;
     float imageWidth = MAX(_minStarSize.width, desiredImageWidth);
     float imageHeight = MAX(_minStarSize.height, self.frame.size.height);

@@ -17,6 +17,8 @@
 
 @interface ASStarRatingView : UIView {
     NSMutableArray *_starViews;
+    NSMutableArray *_starStates;
+    NSMutableArray *_starStatesPrev;
 }
 
 @property (strong, nonatomic) UIImage *notSelectedStar;

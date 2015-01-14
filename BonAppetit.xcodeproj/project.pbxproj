@@ -217,6 +217,21 @@
 		5694C669247372EDB6E1C246 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				690C93421A5F88FC00D3BC65 /* SystemConfiguration.framework */,
+				690C93401A5F88F500D3BC65 /* QuartzCore.framework */,
+				690C933E1A5F88E400D3BC65 /* OpenGLES.framework */,
+				690C933C1A5F88DF00D3BC65 /* libz.dylib */,
+				690C933A1A5F88D600D3BC65 /* libicucore.dylib */,
+				690C93381A5F88CA00D3BC65 /* libc++.dylib */,
+				690C93361A5F88AD00D3BC65 /* ImageIO.framework */,
+				690C93341A5F88A400D3BC65 /* GLKit.framework */,
+				690C93321A5F889900D3BC65 /* CoreData.framework */,
+				690C93301A5F889300D3BC65 /* AVFoundation.framework */,
+				690C932C1A5F87DE00D3BC65 /* GoogleMaps.framework */,
+				690C93281A5F83EB00D3BC65 /* CoreLocation.framework */,
+				690C93121A5F525200D3BC65 /* AudioToolbox.framework */,
+				691A5F5F1A4FBC5A00C28718 /* CoreGraphics.framework */,
+				691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */,
 				694D09561A610D2C0055B69F /* Security.framework */,
 				A39C66EC9154216A911DD14C /* libPods.a */,
 			);
@@ -239,22 +254,7 @@
 		691A5EE51A4F894E00C28718 = {
 			isa = PBXGroup;
 			children = (
-				690C93421A5F88FC00D3BC65 /* SystemConfiguration.framework */,
-				690C93401A5F88F500D3BC65 /* QuartzCore.framework */,
-				690C933E1A5F88E400D3BC65 /* OpenGLES.framework */,
-				690C933C1A5F88DF00D3BC65 /* libz.dylib */,
-				690C933A1A5F88D600D3BC65 /* libicucore.dylib */,
-				690C93381A5F88CA00D3BC65 /* libc++.dylib */,
-				690C93361A5F88AD00D3BC65 /* ImageIO.framework */,
-				690C93341A5F88A400D3BC65 /* GLKit.framework */,
-				690C93321A5F889900D3BC65 /* CoreData.framework */,
-				690C93301A5F889300D3BC65 /* AVFoundation.framework */,
 				690C932E1A5F883300D3BC65 /* GoogleMaps.bundle */,
-				690C932C1A5F87DE00D3BC65 /* GoogleMaps.framework */,
-				690C93281A5F83EB00D3BC65 /* CoreLocation.framework */,
-				690C93121A5F525200D3BC65 /* AudioToolbox.framework */,
-				691A5F5F1A4FBC5A00C28718 /* CoreGraphics.framework */,
-				691A5F1A1A4F8AEC00C28718 /* FacebookSDK.framework */,
 				691A5EF01A4F894E00C28718 /* BonAppetit */,
 				691A5F0D1A4F894E00C28718 /* BonAppetitTests */,
 				691A5EEF1A4F894E00C28718 /* Products */,

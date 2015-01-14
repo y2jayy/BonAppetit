@@ -114,7 +114,9 @@
     NSString *timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
     NSDictionary *parameters = @{
         @"filepath": [NSString stringWithFormat:@"uploads/%@.jpg", timestamp],
-        @"rating": [NSString stringWithFormat:@"%f", rating]
+        @"rating": [NSString stringWithFormat:@"%f", rating],
+        @"restaurantName": @"Random Restaurant",
+        @"username": @"Random User"
     };
     AFHTTPRequestOperation *op = [manager POST:@"?c=review&m=createReview" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //do not put image inside parameters dictionary as I did, but append it!

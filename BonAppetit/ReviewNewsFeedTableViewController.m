@@ -8,7 +8,6 @@
 
 #import "ReviewNewsFeedTableViewController.h"
 #import "ReviewNewsFeedTableViewCell.h"
-//#import "BAReview.h"
 #import "AppDelegate.h"
 
 @interface ReviewNewsFeedTableViewController ()
@@ -28,6 +27,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title = @"Food Feed";
     
      _profileImages = @[@"person1.jpg",
                   @"person2.jpg",
@@ -58,6 +58,11 @@
                    @"2",
                    @"4",
                    @"1"];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     self.user = [[API sharedManager] signedInUser];
     
@@ -69,8 +74,6 @@
 {
     [[API sharedManager] fetchFolloweeReviewsForUser:self.user callback:
       ^(NSArray *sortedReviews, NSError *error) {
-NSLog(@"%@", sortedReviews);
-NSLog(@"wtf");
           if (error) {
               NSLog(@"Error fetching latest reviews: %@", error);
           } else {
