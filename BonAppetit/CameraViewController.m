@@ -12,6 +12,7 @@
 #import <AFHTTPRequestOperation.h>
 #import <AFHTTPRequestOperationManager.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface CameraViewController ()
 
@@ -93,9 +94,11 @@
     self.confirmRatingButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 200, 80, 40)];
     [self.confirmRatingButton setTitle:@"Rate!" forState:UIControlStateNormal];
     [self.confirmRatingButton setBackgroundColor:[UIColor greenColor]];
-    [self.confirmRatingButton addTarget:self action:@selector(saveRating) forControlEvents:UIControlEventTouchUpInside];
+    [self.confirmRatingButton addTarget:self action:@selector(getRestaurant) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.confirmRatingButton];
     //testing
+    
+    [self startStandardUpdates];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -103,7 +106,48 @@
     
 }
 
-- (void)saveRating {
+- (void)getRestaurant {
+    //testing
+     // Create the request.
+    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.8235306000,-117.8340944000&radius=5&rankBy=distance&types=restaurant&key=AIzaSyAJzXxRP2bnEyV_SiI1g2B8yDUYchjdrkE"]]
+                cachePolicy:NSURLRequestUseProtocolCachePolicy
+            timeoutInterval:60.0];
+
+    // Create the NSMutableData to hold the received data.
+    _receivedData = [NSMutableData dataWithCapacity: 0];
+
+    // create the connection with the request and start loading the data
+    _placeSearchConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (!_placeSearchConnection) {
+        // Release the receivedData object.
+        _receivedData = nil;
+    }
+    //testing
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [_receivedData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    // Append the new data to receivedData.
+    // receivedData is an instance variable declared elsewhere.
+    [_receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    if (connection == _placeSearchConnection)
+    {
+        // Parse the JSON that came in
+        NSError *error;
+        NSDictionary *restaurantData = [NSJSONSerialization JSONObjectWithData:_receivedData options:NSJSONReadingAllowFragments error:&error][@"results"][0];
+        
+        double lat = [restaurantData[@"geometry"][@"location"][@"lat"] doubleValue],
+                lng = [restaurantData[@"geometry"][@"location"][@"lng"] doubleValue];
+        
     AudioServicesPlaySystemSound(1001);
     double rating = self.editableStarRatingView.rating;
 
@@ -115,8 +159,10 @@
     NSDictionary *parameters = @{
         @"filepath": [NSString stringWithFormat:@"uploads/%@.jpg", timestamp],
         @"rating": [NSString stringWithFormat:@"%f", rating],
-        @"restaurantName": @"Random Restaurant",
-        @"username": [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"first_name"], [[NSUserDefaults standardUserDefaults] valueForKey:@"last_name"]]
+        @"restaurantName": restaurantData[@"name"],
+        @"userId": [[NSUserDefaults standardUserDefaults] valueForKey:@"userId"],
+        @"latitude": [NSString stringWithFormat:@"%f", lat],
+        @"longitude": [NSString stringWithFormat:@"%f", lng]
     };
     AFHTTPRequestOperation *op = [manager POST:@"?c=review&m=createReview" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //do not put image inside parameters dictionary as I did, but append it!
@@ -135,6 +181,48 @@
     [self.editableStarRatingView removeFromSuperview];
     [self.confirmRatingButton removeFromSuperview];
     self.imageView.image = nil;
+    }
+}
+
+- (void)startStandardUpdates
+{
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == _locationManager)
+    {
+        // Configure Location Manager
+        _locationManager = [[CLLocationManager alloc] init];
+ 
+        _locationManager.delegate = self;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+     
+        // Set a movement threshold for new events.
+        _locationManager.distanceFilter = 0; // meters
+    }
+    if ([_locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [_locationManager requestWhenInUseAuthorization];
+    }
+    [_locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+      didUpdateLocations:(NSArray *)locations {
+    // If it's a relatively recent event, turn off updates to save power.
+    CLLocation* location = [locations lastObject];
+    NSDate* eventDate = location.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    
+        // If the event is recent, do something with it.
+        
+        // Push your "new" location to the database.
+        // This needs to be changed so that the update happens not on a time interval, but on a minimum location change.
+
+        _coordinates.latitude = location.coordinate.latitude;
+        _coordinates.longitude = location.coordinate.longitude;
+NSLog(@"Latitude: %f", _coordinates.latitude);
+        
+        // Stop Updating Locations
+        [_locationManager stopUpdatingLocation];
 }
 
 @end

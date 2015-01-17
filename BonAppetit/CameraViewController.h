@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, NSURLConnectionDataDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, readwrite) CLLocationCoordinate2D coordinates;
+
+// NSURLConnection data and connections
+@property NSMutableData* receivedData;
+@property (nonatomic, strong) NSURLConnection *placeSearchConnection;
+// End NSURLConnection data and connections
 
 - (IBAction)takePhoto:(UIButton *)sender;
 - (IBAction)selectPhoto:(UIButton *)sender;

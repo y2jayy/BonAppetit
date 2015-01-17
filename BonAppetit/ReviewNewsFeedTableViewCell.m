@@ -45,7 +45,7 @@
     self.user = [[API sharedManager] signedInUser];
     //temp
 
-    self.reviewerNameLabel.text = review.username;
+    self.reviewerNameLabel.text = [NSString stringWithFormat:@"%@ %@", review.firstName, review.lastName];
     self.restaurantNameLabel.text = review.restaurantName;
     //testing
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openMap:)];

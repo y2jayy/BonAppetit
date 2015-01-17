@@ -23,7 +23,8 @@
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
 //temp
-@property (nonatomic, copy) NSString *username;
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *lastName;
 //temp
 //testing
 @property (nonatomic, copy) NSString *likesCount;
