@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSDate *createdAtDate;
 @property (nonatomic, copy) NSString *rating;
 @property (nonatomic, copy) NSString *filepath;
+@property (nonatomic, readonly) double latitude;
+@property (nonatomic, readonly) double longitude;
 //temp
 @property (nonatomic, copy) NSString *username;
 //temp

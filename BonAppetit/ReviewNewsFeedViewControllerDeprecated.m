@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 questa. All rights reserved.
 //
 
-#import "ReviewNewsFeedViewController.h"
-#import "Masonry/Masonry.h"
-#import "StrechyParallaxScrollView.h"
+#import "ReviewNewsFeedViewControllerDeprecated.h"
 #import "ASStarRatingView.h"
 //#import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
@@ -38,51 +36,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //top view
-    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
-    UIImageView *topView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, 150)];
-    [topView setImage:[UIImage imageNamed:@"bg.jpg"]];
-    [topView setBackgroundColor:RGBCOLOR(128, 26, 26)];
-    
-    UIImageView *circle = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-    [circle setImage:[UIImage imageNamed:@"profile.jpg"]];
-    [circle setCenter:topView.center];
-    [circle.layer setMasksToBounds:YES];
-    [circle.layer setCornerRadius:40];
-    [topView addSubview:circle];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, width, 20)];
-    [label setText:@"Bon Appetit"];
-    [label setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
-    [label setTextAlignment:NSTextAlignmentCenter];
-    [label setTextColor:[UIColor whiteColor]];
-    [topView addSubview:label];
-
-    
-    //masonary constraints for parallax view subviews (optional)
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo (circle.mas_bottom).offset (10);
-        make.centerX.equalTo (topView);
-    }];
-    [circle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo ([NSValue valueWithCGSize:CGSizeMake(80, 80)]);
-        make.center.equalTo (topView);
-    }];
-    
-    
-    //create strechy parallax scroll view
-    StrechyParallaxScrollView *strechy = [[StrechyParallaxScrollView alloc] initWithFrame:self.view.frame andTopView:topView];
-    [self.view addSubview:strechy];
-    
-    //add dummy scroll view items
-    float itemStartY = topView.frame.size.height + 10;
-    for (int i = 1; i <= 10; i++) {
-        [strechy addSubview:[self scrollViewItemWithY:itemStartY andNumber:i]];
-        itemStartY += 390;
-    }
-    
-    //set scrollable area (classic uiscrollview stuff)
-    [strechy setContentSize:CGSizeMake(width, itemStartY)];
+//    //top view
+//    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
+//    UIImageView *topView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, 150)];
+//    [topView setImage:[UIImage imageNamed:@"bg.jpg"]];
+//    [topView setBackgroundColor:RGBCOLOR(128, 26, 26)];
+//    
+//    UIImageView *circle = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+//    [circle setImage:[UIImage imageNamed:@"profile.jpg"]];
+//    [circle setCenter:topView.center];
+//    [circle.layer setMasksToBounds:YES];
+//    [circle.layer setCornerRadius:40];
+//    [topView addSubview:circle];
+//    
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, width, 20)];
+//    [label setText:@"Bon Appetit"];
+//    [label setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
+//    [label setTextAlignment:NSTextAlignmentCenter];
+//    [label setTextColor:[UIColor whiteColor]];
+//    [topView addSubview:label];
+//
+//    
+//    //masonary constraints for parallax view subviews (optional)
+//    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo (circle.mas_bottom).offset (10);
+//        make.centerX.equalTo (topView);
+//    }];
+//    [circle mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.equalTo ([NSValue valueWithCGSize:CGSizeMake(80, 80)]);
+//        make.center.equalTo (topView);
+//    }];
+//    
+//    
+//    //create strechy parallax scroll view
+//    StrechyParallaxScrollView *strechy = [[StrechyParallaxScrollView alloc] initWithFrame:self.view.frame andTopView:topView];
+//    [self.view addSubview:strechy];
+//    
+//    //add dummy scroll view items
+//    float itemStartY = topView.frame.size.height + 10;
+//    for (int i = 1; i <= 10; i++) {
+//        [strechy addSubview:[self scrollViewItemWithY:itemStartY andNumber:i]];
+//        itemStartY += 390;
+//    }
+//    
+//    //set scrollable area (classic uiscrollview stuff)
+//    [strechy setContentSize:CGSizeMake(width, itemStartY)];
 }
 
 - (UIView *)scrollViewItemWithY:(CGFloat)y andNumber:(int)num {

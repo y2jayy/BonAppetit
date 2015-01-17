@@ -116,7 +116,7 @@
         @"filepath": [NSString stringWithFormat:@"uploads/%@.jpg", timestamp],
         @"rating": [NSString stringWithFormat:@"%f", rating],
         @"restaurantName": @"Random Restaurant",
-        @"username": @"Random User"
+        @"username": [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"first_name"], [[NSUserDefaults standardUserDefaults] valueForKey:@"last_name"]]
     };
     AFHTTPRequestOperation *op = [manager POST:@"?c=review&m=createReview" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //do not put image inside parameters dictionary as I did, but append it!

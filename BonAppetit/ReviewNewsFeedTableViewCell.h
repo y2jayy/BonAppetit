@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet ASStarRatingView *ratingView;
 @property (strong, nonatomic) IBOutlet UILabel *likesCountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
+@property (nonatomic, readwrite) CLLocationCoordinate2D coordinates;
 
 - (void)configureWithReview:(BAReview *)review;
 

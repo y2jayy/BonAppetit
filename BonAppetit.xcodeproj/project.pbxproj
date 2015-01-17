@@ -75,6 +75,7 @@
 		694D096F1A625D750055B69F /* BAJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 694D096E1A625D750055B69F /* BAJSONModel.m */; };
 		6952AB2E1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */; };
 		6952AB311A609996006E135C /* ReviewNewsFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952AB301A609996006E135C /* ReviewNewsFeedTableViewController.m */; };
+		69D4D20F1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D20E1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.m */; };
 		EEA503F16758E31244F473DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C66EC9154216A911DD14C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +176,8 @@
 		6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNewsFeedTableViewCell.m; sourceTree = "<group>"; };
 		6952AB2F1A609996006E135C /* ReviewNewsFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNewsFeedTableViewController.h; sourceTree = "<group>"; };
 		6952AB301A609996006E135C /* ReviewNewsFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNewsFeedTableViewController.m; sourceTree = "<group>"; };
+		69D4D20D1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNewsFeedViewControllerDeprecated.h; sourceTree = "<group>"; };
+		69D4D20E1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNewsFeedViewControllerDeprecated.m; sourceTree = "<group>"; };
 		7A0299983122257B7885CA75 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A39C66EC9154216A911DD14C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -389,6 +392,8 @@
 		694D095A1A623F000055B69F /* ReviewNewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				69D4D20D1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.h */,
+				69D4D20E1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.m */,
 				6952AB2C1A6098F4006E135C /* ReviewNewsFeedTableViewCell.h */,
 				6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */,
 				6952AB2F1A609996006E135C /* ReviewNewsFeedTableViewController.h */,
@@ -619,6 +624,7 @@
 				691A5EF41A4F894E00C28718 /* main.m in Sources */,
 				6952AB2E1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m in Sources */,
 				694D09621A6244960055B69F /* BAReview.m in Sources */,
+				69D4D20F1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.m in Sources */,
 				694D09691A625B450055B69F /* NSObject+TypeValidation.m in Sources */,
 				691A5EFD1A4F894E00C28718 /* ViewController.m in Sources */,
 				694D096F1A625D750055B69F /* BAJSONModel.m in Sources */,
