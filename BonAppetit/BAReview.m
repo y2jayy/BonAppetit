@@ -16,7 +16,8 @@
 {
     // Mapping is <JSON key> : <property name>
     // Others are named the same and will be mapped automatically
-    NSDictionary *mapperDictionary = @{ @"id" : @"reviewId",
+    NSDictionary *mapperDictionary = @{ @"review_id" : @"reviewId",
+                                        @"like_id" : @"likeId",
                                         @"restaurant_name" : @"restaurantName"};
     
     return [[JSONKeyMapper alloc] initWithDictionary:mapperDictionary];

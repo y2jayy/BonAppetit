@@ -993,11 +993,10 @@
     //testing
 }
 
-//- (void)addVoter:(CUCouple *)voter
-//       voterType:(NSString *)voterType
-//           asset:(NSString *)assetId
-//        callback:(void (^)(NSDictionary *jsonDictionary, NSError *error))callback
-//{
+- (void)addLike:(BAUser *)user
+           review:(NSString *)reviewId
+        callback:(void (^)(NSDictionary *jsonDictionary, NSError *error))callback
+{
 //    BOOL validVoterType = ((CUAssetJellyVoterType == voterType) ||
 //                           (CUAssetHotsauceVoterType == voterType) ||
 //                           (CUAssetCheeseballVoterType == voterType));
@@ -1008,7 +1007,7 @@
 //        callback(nil, [NSError errorWithDomain:@"com.zoupple" code:0 userInfo:nil]);
 //        return;
 //    }
-//    
+    
 //    NSString *endpoint = [NSString stringWithFormat:@"/assets/%@/%@voters/%@", assetId, voterType, voter.coupleId];
 //    
 //    [[CUHTTPRequestOperationManager sharedManager]
@@ -1022,8 +1021,28 @@
 //     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //         callback(nil, error);
 //     }];
-//}
-//
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.networksocal.com/"]];
+
+    NSDictionary *parameters = @{
+        @"userId": @"17",
+        @"reviewId": reviewId,
+    };
+
+    AFHTTPRequestOperation *op = [manager
+        POST:@"?c=review&m=likeReview"
+        parameters:parameters
+        success:^(AFHTTPRequestOperation *operation, id responseObject)
+        {
+            NSDictionary *responseDictionary = [responseObject dictionaryOrNilValue];
+            callback(responseDictionary, nil);
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error)
+        {
+            callback(nil, error);
+        }];
+        [op start];
+}
+
 //- (void)removeVoter:(NSString *)voterId
 //          voterType:(NSString *)voterType
 //              asset:(NSString *)assetId

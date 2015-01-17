@@ -35,6 +35,15 @@
                             user:(id<FBGraphUser>)user {
   self.profilePictureView.profileID = user.id;
   self.nameLabel.text = user.name;
+  
+      // Set user defaults
+    [[NSUserDefaults standardUserDefaults] setObject:user.first_name forKey:@"first_name"];
+    [[NSUserDefaults standardUserDefaults] setObject:user.last_name forKey:@"last_name"];
+    
+    // Web API authentication for user data persistence
+    NSUserDefaults *storeData=[NSUserDefaults standardUserDefaults];
+    [storeData setObject:user.id forKey:@"fbUserId"];
+    [self authenticate:user];
 }
 
 // Logged-in user experience
@@ -91,6 +100,105 @@
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
   }
+}
+
+// Web API Methods for Authentication and Signing up - User Data Persistence
+// Facebook's Authentication API is insufficient because we cannot get a list of all logged in users of a given user
+// if those users are not friends in the Facebook API
+
+- (void)authenticate:(id<FBGraphUser>)FBUserData
+{
+//    NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    // Create the request.
+    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.networksocal.com/welcome/authenticate/%@", FBUserData.id]]
+                cachePolicy:NSURLRequestUseProtocolCachePolicy
+            timeoutInterval:60.0];
+
+    // Create the NSMutableData to hold the received data.
+    _receivedData = [NSMutableData dataWithCapacity: 0];
+
+    // create the connection with the request and start loading the data
+    _authenticateConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (!_authenticateConnection) {
+        // Release the receivedData object.
+        _receivedData = nil;
+    }
+}
+
+- (void)signup
+{
+    NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
+    NSUserDefaults *storeData = [NSUserDefaults standardUserDefaults];
+//    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Please enter your phone number." delegate:self cancelButtonTitle:@"Submit" otherButtonTitles:nil];
+//    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    [alert show];
+    
+    // Create the request.
+    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.networksocal.com/welcome/signup/%@/%@/%@/%@", [storeData valueForKey:@"fbUserId"], deviceId, [[storeData valueForKey:@"first_name"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [[storeData valueForKey:@"last_name"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]
+                cachePolicy:NSURLRequestUseProtocolCachePolicy
+            timeoutInterval:60.0];
+
+    // Create the NSMutableData to hold the received data.
+    _receivedData = [NSMutableData dataWithCapacity: 0];
+
+    // create the connection with the request and start loading the data
+    _signupConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (!_signupConnection)
+    {
+        // Release the receivedData object.
+        _receivedData = nil;
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [_receivedData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    // Append the new data to receivedData.
+    // receivedData is an instance variable declared elsewhere.
+    [_receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    if (connection == _authenticateConnection)
+    {
+//NSLog(@"ok it works now");
+        // Parse the JSON that came in
+        NSError *error;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_receivedData options:NSJSONReadingAllowFragments error:&error];
+    
+        if (jsonArray.count > 0)
+        {
+            NSString * Authkey = jsonArray[0][@"id"];;
+            NSUserDefaults *storeData=[NSUserDefaults standardUserDefaults];
+            [storeData setObject:Authkey forKey:@"userId"];
+//            _userId = jsonArray[0][@"id"];
+        }
+        else
+        {
+            [self signup];
+        }
+    }
+    else if (connection == _signupConnection)
+    {
+        NSError *error;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_receivedData options:NSJSONReadingAllowFragments error:&error];
+
+        NSString * Authkey = jsonArray[0];
+        NSUserDefaults *storeData = [NSUserDefaults standardUserDefaults];
+        [storeData setObject:Authkey forKey:@"userId"];
+//        _userId = jsonArray[0];
+    }
+    
+    NSUserDefaults *storeData = [NSUserDefaults standardUserDefaults];
+//    NSLog(@"FBLoginID: %@", [storeData valueForKey:@"fbUserId"]);
+//    NSLog(@"CustomID: %@", [storeData valueForKey:@"userId"]);
+NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
 }
 
 /*

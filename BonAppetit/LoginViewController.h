@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface LoginViewController : UIViewController <FBLoginViewDelegate>
+@interface LoginViewController : UIViewController <FBLoginViewDelegate, NSURLConnectionDataDelegate>
 
 @property (weak, nonatomic) IBOutlet FBLoginView *loginView;
+
+// NSURLConnection data and connections
+@property NSMutableData* receivedData;
+@property (nonatomic, strong) NSURLConnection *authenticateConnection;
+@property (nonatomic, strong) NSURLConnection *signupConnection;
+// End NSURLConnection data and connections
+
 @end

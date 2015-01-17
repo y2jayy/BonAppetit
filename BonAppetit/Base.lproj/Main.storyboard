@@ -154,7 +154,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSU-Ly-APn">
-                                            <rect key="frame" x="0.0" y="76" width="600" height="391"/>
+                                            <rect key="frame" x="0.0" y="76" width="600" height="348"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QvJ-0V-mGh">
                                             <rect key="frame" x="8" y="8" width="60" height="60"/>
@@ -175,12 +175,29 @@
                                             <rect key="frame" x="71" y="51" width="122" height="17"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeT-7e-CBo">
+                                            <rect key="frame" x="8" y="499" width="30" height="30"/>
+                                            <state key="normal" title="Like">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didTapLikeButton:" destination="01L-ab-YLh" eventType="touchUpInside" id="zDI-Gd-ryq"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj3-2w-tfS">
+                                            <rect key="frame" x="8" y="432" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="centerX" secondItem="tSU-Ly-APn" secondAttribute="centerX" id="mug-KC-jNr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="likeButton" destination="MeT-7e-CBo" id="nIG-CC-z80"/>
+                                    <outlet property="likesCountLabel" destination="Zj3-2w-tfS" id="hMb-2b-gYd"/>
                                     <outlet property="profileImageView" destination="QvJ-0V-mGh" id="u46-U1-XjZ"/>
                                     <outlet property="ratingView" destination="JbS-ff-08j" id="o4n-eW-n48"/>
                                     <outlet property="restaurantNameLabel" destination="HF1-cS-39U" id="b0i-3j-rrn"/>

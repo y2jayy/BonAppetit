@@ -124,11 +124,10 @@
 - (void)fetchFolloweeReviewsForUser:(BAUser *)user
                             callback:(void (^)(NSArray *sortedReviews, NSError *error))callback;
 
-//- (void)addVoter:(CUCouple *)voter
-//       voterType:(NSString *)voterType
-//           asset:(NSString *)assetId
-//        callback:(void (^)(NSDictionary *jsonDictionary, NSError *error))callback;
-//
+- (void)addLike:(BAUser *)user
+           review:(NSString *)reviewId
+        callback:(void (^)(NSDictionary *jsonDictionary, NSError *error))callback;
+
 //- (void)removeVoter:(NSString *)voterId
 //          voterType:(NSString *)voterType
 //              asset:(NSString *)assetId
