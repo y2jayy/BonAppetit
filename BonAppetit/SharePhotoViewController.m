@@ -10,6 +10,7 @@
 
 @interface SharePhotoViewController ()
 
+@property (strong, nonatomic) IBOutlet UITextField *selectedPlaceNameLabel;
 @end
 
 @implementation SharePhotoViewController
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.selectedPlaceNameLabel.text = self.placeName;
 }
 
 - (void)didReceiveMemoryWarning {

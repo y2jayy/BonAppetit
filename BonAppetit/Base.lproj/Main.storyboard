@@ -302,6 +302,9 @@
                             <constraint firstAttribute="centerX" secondItem="85r-C0-5tf" secondAttribute="centerX" id="2X5-DQ-Y6f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="selectedPlaceNameLabel" destination="oit-T3-vwn" id="AEP-DY-OGi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQc-DD-YXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -346,7 +349,7 @@
                                 <connections>
                                     <outlet property="placeAddressLabel" destination="8EX-D8-EEf" id="1q9-0B-Ybu"/>
                                     <outlet property="placeNameLabel" destination="94s-BZ-Neh" id="tCN-G5-PsV"/>
-                                    <segue destination="z3v-CI-YqZ" kind="show" id="Bj9-sp-xuP"/>
+                                    <segue destination="z3v-CI-YqZ" kind="show" identifier="selectedPlaceSegue" id="Bj9-sp-xuP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

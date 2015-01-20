@@ -10,6 +10,7 @@
 #import "PlacesSearchTableViewCell.h"
 #import "BAPlace.h"
 #import "AppDelegate.h"
+#import "SharePhotoViewController.h"
 
 @interface PlacesSearchTableViewController ()
 
@@ -172,15 +173,17 @@ static NSString * const reuseIdentifier = @"placeCell";
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"selectedPlaceSegue"]) {
+        SharePhotoViewController *controller = (SharePhotoViewController *)segue.destinationViewController;
+        controller.placeName = [sender placeNameLabel].text;
+    }
 }
-*/
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {

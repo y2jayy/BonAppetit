@@ -11,5 +11,6 @@
 @interface SharePhotoViewController : UIViewController
 
 @property (nonatomic) float rating;
+@property (nonatomic, copy) NSString *placeName;
 
 @end
