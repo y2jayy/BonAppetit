@@ -13,6 +13,7 @@
 #import <AFHTTPRequestOperationManager.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "SharePhotoViewController.h"
 
 @interface CameraViewController ()
 
@@ -107,22 +108,23 @@
 }
 
 - (void)getRestaurant {
-    //testing
-     // Create the request.
-    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.8235306000,-117.8340944000&radius=5&rankBy=distance&types=restaurant&key=AIzaSyAJzXxRP2bnEyV_SiI1g2B8yDUYchjdrkE"]]
-                cachePolicy:NSURLRequestUseProtocolCachePolicy
-            timeoutInterval:60.0];
-
-    // Create the NSMutableData to hold the received data.
-    _receivedData = [NSMutableData dataWithCapacity: 0];
-
-    // create the connection with the request and start loading the data
-    _placeSearchConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-    if (!_placeSearchConnection) {
-        // Release the receivedData object.
-        _receivedData = nil;
-    }
-    //testing
+    [self performSegueWithIdentifier:@"nextButtonSegue" sender:self];
+//    //testing
+//     // Create the request.
+//    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.8235306000,-117.8340944000&radius=5&rankBy=distance&types=restaurant&key=AIzaSyAJzXxRP2bnEyV_SiI1g2B8yDUYchjdrkE"]]
+//                cachePolicy:NSURLRequestUseProtocolCachePolicy
+//            timeoutInterval:60.0];
+//
+//    // Create the NSMutableData to hold the received data.
+//    _receivedData = [NSMutableData dataWithCapacity: 0];
+//
+//    // create the connection with the request and start loading the data
+//    _placeSearchConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+//    if (!_placeSearchConnection) {
+//        // Release the receivedData object.
+//        _receivedData = nil;
+//    }
+//    //testing
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -223,6 +225,17 @@ NSLog(@"Latitude: %f", _coordinates.latitude);
         
         // Stop Updating Locations
         [_locationManager stopUpdatingLocation];
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"nextButtonSegue"]) {
+        SharePhotoViewController *controller = (SharePhotoViewController *)segue.destinationViewController;
+        controller.rating = self.editableStarRatingView.rating;
+    }
 }
 
 @end

@@ -72,7 +72,7 @@
 
 -(void)fetchLatestReviews
 {
-    [[API sharedManager] fetchFolloweeReviewsForUser:self.user callback:
+    [[API sharedManager] fetchFolloweeReviewsForUser:self.user exceptForOwn:[[NSUserDefaults standardUserDefaults] valueForKey:@"userId"] callback:
       ^(NSArray *sortedReviews, NSError *error) {
           if (error) {
               NSLog(@"Error fetching latest reviews: %@", error);

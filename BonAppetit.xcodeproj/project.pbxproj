@@ -76,6 +76,10 @@
 		6952AB2E1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */; };
 		6952AB311A609996006E135C /* ReviewNewsFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952AB301A609996006E135C /* ReviewNewsFeedTableViewController.m */; };
 		69D4D20F1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D20E1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.m */; };
+		69D4D2121A6C988C00DA3A05 /* SharePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D2111A6C988C00DA3A05 /* SharePhotoViewController.m */; };
+		69D4D2181A6CAB0700DA3A05 /* PlacesSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D2171A6CAB0700DA3A05 /* PlacesSearchTableViewController.m */; };
+		69D4D21B1A6CAB2100DA3A05 /* PlacesSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D21A1A6CAB2100DA3A05 /* PlacesSearchTableViewCell.m */; };
+		69D4D21F1A6CB25C00DA3A05 /* BAPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D21E1A6CB25C00DA3A05 /* BAPlace.m */; };
 		EEA503F16758E31244F473DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C66EC9154216A911DD14C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +182,14 @@
 		6952AB301A609996006E135C /* ReviewNewsFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNewsFeedTableViewController.m; sourceTree = "<group>"; };
 		69D4D20D1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNewsFeedViewControllerDeprecated.h; sourceTree = "<group>"; };
 		69D4D20E1A6A488400DA3A05 /* ReviewNewsFeedViewControllerDeprecated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNewsFeedViewControllerDeprecated.m; sourceTree = "<group>"; };
+		69D4D2101A6C988C00DA3A05 /* SharePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePhotoViewController.h; sourceTree = "<group>"; };
+		69D4D2111A6C988C00DA3A05 /* SharePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePhotoViewController.m; sourceTree = "<group>"; };
+		69D4D2161A6CAB0700DA3A05 /* PlacesSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesSearchTableViewController.h; sourceTree = "<group>"; };
+		69D4D2171A6CAB0700DA3A05 /* PlacesSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesSearchTableViewController.m; sourceTree = "<group>"; };
+		69D4D2191A6CAB2100DA3A05 /* PlacesSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesSearchTableViewCell.h; sourceTree = "<group>"; };
+		69D4D21A1A6CAB2100DA3A05 /* PlacesSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesSearchTableViewCell.m; sourceTree = "<group>"; };
+		69D4D21D1A6CB25C00DA3A05 /* BAPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPlace.h; sourceTree = "<group>"; };
+		69D4D21E1A6CB25C00DA3A05 /* BAPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPlace.m; sourceTree = "<group>"; };
 		7A0299983122257B7885CA75 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A39C66EC9154216A911DD14C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -372,10 +384,12 @@
 			children = (
 				694D096D1A625D750055B69F /* BAJSONModel.h */,
 				694D096E1A625D750055B69F /* BAJSONModel.m */,
-				694D095D1A6243690055B69F /* BAUser.h */,
-				694D095E1A6243690055B69F /* BAUser.m */,
 				694D09601A6244960055B69F /* BAReview.h */,
 				694D09611A6244960055B69F /* BAReview.m */,
+				694D095D1A6243690055B69F /* BAUser.h */,
+				694D095E1A6243690055B69F /* BAUser.m */,
+				69D4D21D1A6CB25C00DA3A05 /* BAPlace.h */,
+				69D4D21E1A6CB25C00DA3A05 /* BAPlace.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -385,6 +399,12 @@
 			children = (
 				691A5F611A4FBEB100C28718 /* CameraViewController.h */,
 				691A5F621A4FBEB100C28718 /* CameraViewController.m */,
+				69D4D2101A6C988C00DA3A05 /* SharePhotoViewController.h */,
+				69D4D2111A6C988C00DA3A05 /* SharePhotoViewController.m */,
+				69D4D2161A6CAB0700DA3A05 /* PlacesSearchTableViewController.h */,
+				69D4D2171A6CAB0700DA3A05 /* PlacesSearchTableViewController.m */,
+				69D4D2191A6CAB2100DA3A05 /* PlacesSearchTableViewCell.h */,
+				69D4D21A1A6CAB2100DA3A05 /* PlacesSearchTableViewCell.m */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -618,7 +638,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69D4D21B1A6CAB2100DA3A05 /* PlacesSearchTableViewCell.m in Sources */,
 				691A5EF71A4F894E00C28718 /* AppDelegate.m in Sources */,
+				69D4D2121A6C988C00DA3A05 /* SharePhotoViewController.m in Sources */,
 				6952AB311A609996006E135C /* ReviewNewsFeedTableViewController.m in Sources */,
 				691A5F631A4FBEB100C28718 /* CameraViewController.m in Sources */,
 				691A5EF41A4F894E00C28718 /* main.m in Sources */,
@@ -628,6 +650,8 @@
 				694D09691A625B450055B69F /* NSObject+TypeValidation.m in Sources */,
 				691A5EFD1A4F894E00C28718 /* ViewController.m in Sources */,
 				694D096F1A625D750055B69F /* BAJSONModel.m in Sources */,
+				69D4D21F1A6CB25C00DA3A05 /* BAPlace.m in Sources */,
+				69D4D2181A6CAB0700DA3A05 /* PlacesSearchTableViewController.m in Sources */,
 				694D09651A624C650055B69F /* API.m in Sources */,
 				694D095F1A6243690055B69F /* BAUser.m in Sources */,
 				691A5EFA1A4F894E00C28718 /* BonAppetit.xcdatamodeld in Sources */,

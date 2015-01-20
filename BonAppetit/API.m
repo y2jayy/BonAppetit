@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "BAUser.h"
 #import "BAReview.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface API ()
 //TODO: Find a better home for this
@@ -936,7 +937,7 @@
 //     }];
 //}
 
-- (void)fetchFolloweeReviewsForUser:(BAUser *)user callback:(void (^)(NSArray *sortedReviews, NSError *error))callback
+- (void)fetchFolloweeReviewsForUser:(BAUser *)user exceptForOwn:(NSString *)userId callback:(void (^)(NSArray *sortedReviews, NSError *error))callback
 {
 //    if (user.userId.length == 0) {
 //        NSLog(@"Invalid parameters");
@@ -955,9 +956,13 @@
 //        @"rating": [NSString stringWithFormat:@"%f", rating]
 //    };
     
+    NSDictionary *parameters = @{
+        @"userId": userId
+    };
+    
     AFHTTPRequestOperation *op = [manager
         POST:@"?c=review&m=readReviews"
-        parameters:nil
+        parameters:parameters
 //        constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
 //        {
 //            [formData appendPartWithFileData:imageData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg", timestamp] mimeType:@"image/jpeg"];
@@ -1184,5 +1189,58 @@
 //         callback(nil, error);
 //     }];
 //}
+
+- (void)fetchPlacesContainingKeyword:(NSString *)keyword nearLocation:(CLLocationCoordinate2D)location callback:(void (^)(NSArray *sortedPlaces, NSError *error))callback
+{
+//    if (user.userId.length == 0) {
+//        NSLog(@"Invalid parameters");
+//        //TODO: Pass a real error back
+//        callback(nil, [NSError errorWithDomain:@"com.networksocal" code:0 userInfo:nil]);
+//        return;
+//    }
+    //testing
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json"]];
+    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    
+//    NSDictionary *parameters = @{
+//        @"userId": userId
+//    };
+    
+    AFHTTPRequestOperation *op = [manager
+    POST:@"?location=33.8235306000,-117.8340944000&radius=5&rankBy=distance&types=restaurant&key=AIzaSyAJzXxRP2bnEyV_SiI1g2B8yDUYchjdrkE"
+        parameters:nil
+        success:^(AFHTTPRequestOperation *operation, id responseObject)
+        {
+            NSDictionary *responseDictionary = [responseObject dictionaryOrNilValue];
+            
+            //Note that this is an array
+            //!!!: Need to standardize "data" across API as dictionary or array (probably dict)
+            NSArray *reviewDictionaries = responseDictionary[@"data"];
+
+            NSError *reviewError = nil;
+            NSArray *unsortedReviews = [BAReview arrayOfModelsFromDictionaries:reviewDictionaries error:&reviewError];
+            if (reviewError) {
+                //???: Should this be fatal (i.e. return nil for sortedAssets)?
+                NSLog(@"Error creating review: %@", reviewError);
+            }
+
+//            NSSortDescriptor *dateTimeAddedDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"dateTimeAdded" ascending:NO];
+//            NSArray *sortedAssets = [unsortedAssets sortedArrayUsingDescriptors:@[dateTimeAddedDescriptor]];
+
+            callback(unsortedReviews, nil);
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error)
+        {
+NSLog(@"%@", operation.responseObject);
+            callback(nil, error);
+        }];
+        [op start];
+
+
+//        [self dismissViewControllerAnimated:YES completion:nil];
+    //testing
+}
+
 
 @end

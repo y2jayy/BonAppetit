@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+//todo: change the way you import CoreLocation
+#import <CoreLocation/CoreLocation.h>
 @class CLLocation;
 @class BAUser;
 @class BAReview;
@@ -122,6 +123,7 @@
 //                 callback:(void (^)(NSDictionary *jsonDictionary, NSError *error))callback;
 
 - (void)fetchFolloweeReviewsForUser:(BAUser *)user
+                            exceptForOwn:(NSString *)userId
                             callback:(void (^)(NSArray *sortedReviews, NSError *error))callback;
 
 - (void)addLike:(BAUser *)user
@@ -156,4 +158,8 @@
 //- (void)reportNewsFeedItem:(NSString *)coupleId
 //                     asset:(NSString *)assetId
 //                  callback:(void (^)(NSDictionary *jsonDictionary, NSError *error))callback;
+
+- (void)fetchPlacesContainingKeyword:(NSString *)keyword
+                            nearLocation:(CLLocationCoordinate2D)location
+                            callback:(void (^)(NSArray *sortedPlaces, NSError *error))callback;
 @end
