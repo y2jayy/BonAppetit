@@ -182,6 +182,11 @@ static NSString * const reuseIdentifier = @"placeCell";
     if ([segue.identifier isEqualToString:@"selectedPlaceSegue"]) {
         SharePhotoViewController *controller = (SharePhotoViewController *)segue.destinationViewController;
         controller.placeName = [sender placeNameLabel].text;
+        
+        controller.rating = self.rating;
+        controller.latitude = self.latitude;
+        controller.longitude = self.longitude;
+        controller.photoTaken = self.photoTaken;
     }
 }
 

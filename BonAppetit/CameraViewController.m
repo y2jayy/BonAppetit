@@ -93,7 +93,7 @@
     //testing
     [self.confirmRatingButton removeFromSuperview];
     self.confirmRatingButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 200, 80, 40)];
-    [self.confirmRatingButton setTitle:@"Rate!" forState:UIControlStateNormal];
+    [self.confirmRatingButton setTitle:@"Next!" forState:UIControlStateNormal];
     [self.confirmRatingButton setBackgroundColor:[UIColor greenColor]];
     [self.confirmRatingButton addTarget:self action:@selector(getRestaurant) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.confirmRatingButton];
@@ -109,22 +109,6 @@
 
 - (void)getRestaurant {
     [self performSegueWithIdentifier:@"nextButtonSegue" sender:self];
-//    //testing
-//     // Create the request.
-//    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.8235306000,-117.8340944000&radius=5&rankBy=distance&types=restaurant&key=AIzaSyAJzXxRP2bnEyV_SiI1g2B8yDUYchjdrkE"]]
-//                cachePolicy:NSURLRequestUseProtocolCachePolicy
-//            timeoutInterval:60.0];
-//
-//    // Create the NSMutableData to hold the received data.
-//    _receivedData = [NSMutableData dataWithCapacity: 0];
-//
-//    // create the connection with the request and start loading the data
-//    _placeSearchConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    if (!_placeSearchConnection) {
-//        // Release the receivedData object.
-//        _receivedData = nil;
-//    }
-//    //testing
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -149,33 +133,6 @@
         
         double lat = [restaurantData[@"geometry"][@"location"][@"lat"] doubleValue],
                 lng = [restaurantData[@"geometry"][@"location"][@"lng"] doubleValue];
-        
-    AudioServicesPlaySystemSound(1001);
-    double rating = self.editableStarRatingView.rating;
-
-    //testing
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.networksocal.com/"]];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.5);
-    NSString *timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
-    NSDictionary *parameters = @{
-        @"filepath": [NSString stringWithFormat:@"uploads/%@.jpg", timestamp],
-        @"rating": [NSString stringWithFormat:@"%f", rating],
-        @"restaurantName": restaurantData[@"name"],
-        @"userId": [[NSUserDefaults standardUserDefaults] valueForKey:@"userId"],
-        @"latitude": [NSString stringWithFormat:@"%f", lat],
-        @"longitude": [NSString stringWithFormat:@"%f", lng]
-    };
-    AFHTTPRequestOperation *op = [manager POST:@"?c=review&m=createReview" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        //do not put image inside parameters dictionary as I did, but append it!
-        [formData appendPartWithFileData:imageData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg", timestamp] mimeType:@"image/jpeg"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@ ***** %@", operation.responseString, error);
-   }];
-    [op start];
-
 
 //        [self dismissViewControllerAnimated:YES completion:nil];
     //testing
@@ -235,6 +192,10 @@ NSLog(@"Latitude: %f", _coordinates.latitude);
     if ([segue.identifier isEqualToString:@"nextButtonSegue"]) {
         SharePhotoViewController *controller = (SharePhotoViewController *)segue.destinationViewController;
         controller.rating = self.editableStarRatingView.rating;
+        controller.latitude = self.coordinates.latitude;
+        controller.longitude = self.coordinates.longitude;
+NSLog(@"It's the segue that's the problem? %@", self.imageView.image);
+        controller.photoTaken = self.imageView.image;
     }
 }
 

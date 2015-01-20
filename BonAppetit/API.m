@@ -982,8 +982,8 @@
                 NSLog(@"Error creating review: %@", reviewError);
             }
 
-//            NSSortDescriptor *dateTimeAddedDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"dateTimeAdded" ascending:NO];
-//            NSArray *sortedAssets = [unsortedAssets sortedArrayUsingDescriptors:@[dateTimeAddedDescriptor]];
+            NSSortDescriptor *dateTimeAddedDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"createdAtDate" ascending:NO];
+            NSArray *sortedAssets = [unsortedReviews sortedArrayUsingDescriptors:@[dateTimeAddedDescriptor]];
 
             callback(unsortedReviews, nil);
         }

@@ -13,6 +13,13 @@
 @property (nonatomic, strong) NSArray *placeNames;
 @property (nonatomic, strong) NSArray *placeAddresses;
 
+//todo - FIX
+@property (nonatomic) float rating;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic, strong) UIImage *photoTaken;
+//end
+
 // NSURLConnection data and connections
 @property NSMutableData* receivedData;
 @property (nonatomic, strong) NSURLConnection *placeSearchConnection;

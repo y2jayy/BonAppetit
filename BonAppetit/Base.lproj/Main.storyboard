@@ -293,16 +293,30 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cLm-Jm-hXp" kind="show" id="ip2-Id-fTP"/>
+                                    <segue destination="cLm-Jm-hXp" kind="show" identifier="placeSearchSegue" id="ip2-Id-fTP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tms-au-eSd">
+                                <rect key="frame" x="277" y="438" width="46" height="30"/>
+                                <state key="normal" title="Share!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapShareButton:" destination="z3v-CI-YqZ" eventType="touchUpInside" id="G4a-0h-oBG"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EtQ-Ul-hmr">
+                                <rect key="frame" x="16" y="20" width="103" height="101"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="85r-C0-5tf" secondAttribute="centerX" id="2X5-DQ-Y6f"/>
+                            <constraint firstAttribute="centerX" secondItem="Tms-au-eSd" secondAttribute="centerX" id="jnN-TC-pUL"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="photoTakenImageView" destination="EtQ-Ul-hmr" id="gFb-ir-q2B"/>
                         <outlet property="selectedPlaceNameLabel" destination="oit-T3-vwn" id="AEP-DY-OGi"/>
                     </connections>
                 </viewController>

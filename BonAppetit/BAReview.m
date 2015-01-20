@@ -20,7 +20,8 @@
                                         @"like_id" : @"likeId",
                                         @"restaurant_name" : @"restaurantName",
                                         @"first_name": @"firstName",
-                                        @"last_name": @"lastName"};
+                                        @"last_name": @"lastName",
+                                        @"created_at": @"createdAtDate"};
     
     return [[JSONKeyMapper alloc] initWithDictionary:mapperDictionary];
 }

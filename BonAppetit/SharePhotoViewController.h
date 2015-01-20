@@ -12,5 +12,8 @@
 
 @property (nonatomic) float rating;
 @property (nonatomic, copy) NSString *placeName;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic, strong) UIImage *photoTaken;
 
 @end
