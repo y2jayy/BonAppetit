@@ -983,9 +983,9 @@
             }
 
             NSSortDescriptor *dateTimeAddedDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"createdAtDate" ascending:NO];
-            NSArray *sortedAssets = [unsortedReviews sortedArrayUsingDescriptors:@[dateTimeAddedDescriptor]];
+            NSArray *sortedReviews = [unsortedReviews sortedArrayUsingDescriptors:@[dateTimeAddedDescriptor]];
 
-            callback(unsortedReviews, nil);
+            callback(sortedReviews, nil);
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error)
         {

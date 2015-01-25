@@ -303,6 +303,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapShareButton:" destination="z3v-CI-YqZ" eventType="touchUpInside" id="G4a-0h-oBG"/>
+                                    <segue destination="Q9A-9d-QPC" kind="show" id="YTl-oX-OVW"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EtQ-Ul-hmr">
@@ -448,6 +449,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="YTl-oX-OVW"/>
         <segue reference="Bj9-sp-xuP"/>
     </inferredMetricsTieBreakers>
 </document>
