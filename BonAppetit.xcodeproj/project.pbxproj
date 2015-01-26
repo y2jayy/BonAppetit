@@ -80,6 +80,8 @@
 		69D4D2181A6CAB0700DA3A05 /* PlacesSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D2171A6CAB0700DA3A05 /* PlacesSearchTableViewController.m */; };
 		69D4D21B1A6CAB2100DA3A05 /* PlacesSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D21A1A6CAB2100DA3A05 /* PlacesSearchTableViewCell.m */; };
 		69D4D21F1A6CB25C00DA3A05 /* BAPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D21E1A6CB25C00DA3A05 /* BAPlace.m */; };
+		69EA9AEA1A76126900F10063 /* UserReviewsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EA9AE91A76126900F10063 /* UserReviewsCollectionViewController.m */; };
+		69EA9AED1A7612FF00F10063 /* UserReviewsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EA9AEC1A7612FF00F10063 /* UserReviewsCollectionViewCell.m */; };
 		EEA503F16758E31244F473DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C66EC9154216A911DD14C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -190,6 +192,10 @@
 		69D4D21A1A6CAB2100DA3A05 /* PlacesSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesSearchTableViewCell.m; sourceTree = "<group>"; };
 		69D4D21D1A6CB25C00DA3A05 /* BAPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPlace.h; sourceTree = "<group>"; };
 		69D4D21E1A6CB25C00DA3A05 /* BAPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPlace.m; sourceTree = "<group>"; };
+		69EA9AE81A76126900F10063 /* UserReviewsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserReviewsCollectionViewController.h; sourceTree = "<group>"; };
+		69EA9AE91A76126900F10063 /* UserReviewsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserReviewsCollectionViewController.m; sourceTree = "<group>"; };
+		69EA9AEB1A7612FF00F10063 /* UserReviewsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserReviewsCollectionViewCell.h; sourceTree = "<group>"; };
+		69EA9AEC1A7612FF00F10063 /* UserReviewsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserReviewsCollectionViewCell.m; sourceTree = "<group>"; };
 		7A0299983122257B7885CA75 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A39C66EC9154216A911DD14C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -418,6 +424,10 @@
 				6952AB2D1A6098F4006E135C /* ReviewNewsFeedTableViewCell.m */,
 				6952AB2F1A609996006E135C /* ReviewNewsFeedTableViewController.h */,
 				6952AB301A609996006E135C /* ReviewNewsFeedTableViewController.m */,
+				69EA9AE81A76126900F10063 /* UserReviewsCollectionViewController.h */,
+				69EA9AE91A76126900F10063 /* UserReviewsCollectionViewController.m */,
+				69EA9AEB1A7612FF00F10063 /* UserReviewsCollectionViewCell.h */,
+				69EA9AEC1A7612FF00F10063 /* UserReviewsCollectionViewCell.m */,
 			);
 			name = ReviewNewsFeed;
 			sourceTree = "<group>";
@@ -641,6 +651,7 @@
 				69D4D21B1A6CAB2100DA3A05 /* PlacesSearchTableViewCell.m in Sources */,
 				691A5EF71A4F894E00C28718 /* AppDelegate.m in Sources */,
 				69D4D2121A6C988C00DA3A05 /* SharePhotoViewController.m in Sources */,
+				69EA9AED1A7612FF00F10063 /* UserReviewsCollectionViewCell.m in Sources */,
 				6952AB311A609996006E135C /* ReviewNewsFeedTableViewController.m in Sources */,
 				691A5F631A4FBEB100C28718 /* CameraViewController.m in Sources */,
 				691A5EF41A4F894E00C28718 /* main.m in Sources */,
@@ -655,6 +666,7 @@
 				694D09651A624C650055B69F /* API.m in Sources */,
 				694D095F1A6243690055B69F /* BAUser.m in Sources */,
 				691A5EFA1A4F894E00C28718 /* BonAppetit.xcdatamodeld in Sources */,
+				69EA9AEA1A76126900F10063 /* UserReviewsCollectionViewController.m in Sources */,
 				691A5F1E1A4F8D3400C28718 /* LoginViewController.m in Sources */,
 				690C92861A5F2ED300D3BC65 /* ASStarRatingView.m in Sources */,
 				691A5F211A4F981A00C28718 /* PageContentViewController.m in Sources */,

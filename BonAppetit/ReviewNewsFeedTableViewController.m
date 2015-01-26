@@ -8,6 +8,7 @@
 
 #import "ReviewNewsFeedTableViewController.h"
 #import "ReviewNewsFeedTableViewCell.h"
+#import "UserReviewsCollectionViewController.h"
 #import "AppDelegate.h"
 
 @interface ReviewNewsFeedTableViewController ()
@@ -160,14 +161,16 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"FoodFeedToUserReviewsSegue"]) {
+        UserReviewsCollectionViewController *controller = (UserReviewsCollectionViewController *)segue.destinationViewController;
+        controller.userId = [NSString stringWithFormat:@"%d", 45];
+    }
 }
-*/
 
 @end

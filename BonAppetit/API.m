@@ -998,6 +998,67 @@
     //testing
 }
 
+- (void)fetchFolloweeReviewsForUserOnly:(NSString *)userId callback:(void (^)(NSArray *sortedReviews, NSError *error))callback
+{
+//    if (user.userId.length == 0) {
+//        NSLog(@"Invalid parameters");
+//        //TODO: Pass a real error back
+//        callback(nil, [NSError errorWithDomain:@"com.networksocal" code:0 userInfo:nil]);
+//        return;
+//    }
+
+    //testing
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.networksocal.com/"]];
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.5);
+//    NSString *timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+//    NSDictionary *parameters = @{
+//        @"filepath": [NSString stringWithFormat:@"uploads/%@.jpg", timestamp],
+//        @"rating": [NSString stringWithFormat:@"%f", rating]
+//    };
+    
+    NSDictionary *parameters = @{
+        @"userId": userId
+    };
+    
+    AFHTTPRequestOperation *op = [manager
+        POST:@"?c=review&m=readReviewsForUser"
+        parameters:parameters
+//        constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+//        {
+//            [formData appendPartWithFileData:imageData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg", timestamp] mimeType:@"image/jpeg"];
+//        }
+        success:^(AFHTTPRequestOperation *operation, id responseObject)
+        {
+            NSDictionary *responseDictionary = [responseObject dictionaryOrNilValue];
+            
+            //Note that this is an array
+            //!!!: Need to standardize "data" across API as dictionary or array (probably dict)
+            NSArray *reviewDictionaries = responseDictionary[@"data"];
+
+            NSError *reviewError = nil;
+            NSArray *unsortedReviews = [BAReview arrayOfModelsFromDictionaries:reviewDictionaries error:&reviewError];
+            if (reviewError) {
+                //???: Should this be fatal (i.e. return nil for sortedAssets)?
+                NSLog(@"Error creating review: %@", reviewError);
+            }
+
+            NSSortDescriptor *dateTimeAddedDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"createdAtDate" ascending:NO];
+            NSArray *sortedReviews = [unsortedReviews sortedArrayUsingDescriptors:@[dateTimeAddedDescriptor]];
+
+            callback(sortedReviews, nil);
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error)
+        {
+            callback(nil, error);
+        }];
+        [op start];
+
+
+//        [self dismissViewControllerAnimated:YES completion:nil];
+    //testing
+}
+
 - (void)addLike:(BAUser *)user
            review:(NSString *)reviewId
         callback:(void (^)(NSDictionary *jsonDictionary, NSError *error))callback

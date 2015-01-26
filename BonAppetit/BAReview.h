@@ -27,7 +27,7 @@
 @property (nonatomic, copy) NSString *lastName;
 //temp
 //testing
-@property (nonatomic, copy) NSString *likesCount;
+@property (nonatomic) int likesCount;
 //testing
 @property (nonatomic, strong) BAUser *user;
 

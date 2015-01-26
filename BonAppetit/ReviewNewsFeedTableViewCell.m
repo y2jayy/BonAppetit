@@ -47,6 +47,11 @@
     //temp
 
     self.reviewerNameLabel.text = [NSString stringWithFormat:@"%@ %@", review.firstName, review.lastName];
+    UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(reviewerNameLabelTapped:)];
+    tapGestureRecognizer1.numberOfTapsRequired = 1;
+    [self.reviewerNameLabel addGestureRecognizer:tapGestureRecognizer1];
+    self.reviewerNameLabel.userInteractionEnabled = YES;
+    
     self.restaurantNameLabel.text = review.restaurantName;
     //testing
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openMap:)];
@@ -55,6 +60,7 @@
     self.restaurantNameLabel.userInteractionEnabled = YES;
     //testing
     
+NSLog(@"%@", review);
     
     //testing
     // Here we use the new provided setImageWithURL: method to load the web image
@@ -65,7 +71,7 @@
     
 //    cell.profileImageView.image = [UIImage imageNamed:_profileImages[row]];
 
-    self.likesCountLabel.text = [NSString stringWithFormat:@" %lu", (unsigned long)review.likesCount];
+    self.likesCountLabel.text = [NSString stringWithFormat:@" %d likes", review.likesCount];
     
     self.ratingView.canEdit = NO;
     self.ratingView.maxRating = 5;
@@ -79,7 +85,7 @@
 - (IBAction)didTapLikeButton:(id)sender {
     if (self.likeButton == sender) {
         self.likeButton.enabled = NO;
-        self.likesCountLabel.text = [NSString stringWithFormat:@" %lu likes", (unsigned long)self.review.likesCount+1];
+        self.likesCountLabel.text = [NSString stringWithFormat:@" %d likes", self.review.likesCount+1];
     }
     
     [[API sharedManager] addLike:self.user review:self.review.reviewId callback:
@@ -128,6 +134,17 @@
 //        marker.snippet = restaurantData[@"vicinity"];
 //        marker.map = mapView_;
     }
+}
+
+- (void)reviewerNameLabelTapped:(id)sender {
+    NSError *error;
+//    NSDictionary *restaurantData = [NSJSONSerialization JSONObjectWithData:_receivedData options:NSJSONReadingAllowFragments error:&error][@"results"][0];
+//    
+//    double lat = [restaurantData[@"geometry"][@"location"][@"lat"] doubleValue],
+//            lng = [restaurantData[@"geometry"][@"location"][@"lng"] doubleValue];
+    UITableView *tv = (UITableView *)self.superview.superview;
+    UITableViewController *vc = (UITableViewController *) tv.dataSource;
+    [vc performSegueWithIdentifier:@"FoodFeedToUserReviewsSegue" sender:self];
 }
 
 @end

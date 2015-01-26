@@ -126,6 +126,9 @@
                             exceptForOwn:(NSString *)userId
                             callback:(void (^)(NSArray *sortedReviews, NSError *error))callback;
 
+- (void)fetchFolloweeReviewsForUserOnly:(NSString *)userId
+                            callback:(void (^)(NSArray *sortedReviews, NSError *error))callback;
+
 - (void)addLike:(BAUser *)user
            review:(NSString *)reviewId
         callback:(void (^)(NSDictionary *jsonDictionary, NSError *error))callback;
