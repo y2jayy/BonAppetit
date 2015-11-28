@@ -947,7 +947,7 @@
 //    }
 
     //testing
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.networksocal.com/"]];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.2.105:3000"]];
 //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 //    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.5);
 //    NSString *timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
@@ -957,11 +957,11 @@
 //    };
     
     NSDictionary *parameters = @{
-        @"userId": userId
+        @"userId": @"3"
     };
     
     AFHTTPRequestOperation *op = [manager
-        POST:@"?c=review&m=readReviews"
+        POST:@"users/fetchFolloweeReviewsForUser"
         parameters:parameters
 //        constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
 //        {
